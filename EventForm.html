@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<style>
+		body {
+			margin: 5% 10%;
+		}
+		.form-group {
+			max-width: 550px;
+		}
+		.custom-controls-stacked {
+			max-width: 300px;
+		}
+</style>
+
+	<body>
+		<h1> Add an Event </h1>
+		<form action="#" method="post">
+
+ 	 <div class="form-group">
+    <label for="eventname">Name of Event</label>
+    <input type="text" class="form-control" id="eventname" required>
+  </div>
+
+   <div class="form-group">
+    <label for="organizerName">Name of Organizer</label>
+    <input type="text" class="form-control" id="organizerName" >
+  </div>
+
+     <div class="form-group">
+    <label for="organizerEmail">Contact email</label>
+    <input type="email" class="form-control" id="organizerName">
+  </div>
+
+   <div class="form-group">
+    <label for="date">Date</label>
+    <input type="date" class="form-control" id="date">
+  </div>
+
+    <div class="form-group">
+    <label for="startTime">Starting Time</label>
+    <input type="time" class="form-control" id="startTime">
+  </div>
+
+  </div>
+    <div class="form-group">
+    <label for="endTime">Ending Time</label>
+    <input type="time" class="form-control" id="endTime">
+  </div>
+
+
+  <label for="custom-controls-stacked"> Event fee </label>
+  <div class="custom-controls-stacked">
+  <label for="price">  
+  <label class="custom-control custom-radio">
+    <input id="price" name="radio-stacked" type="radio" class="custom-control-input">
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description">$</span>
+    <input type="number" id="priceNumber" class="form-control" placeholder="Price"> 
+  </label>
+  <label class="custom-control custom-radio">
+    <input id="free" name="radio-stacked" type="radio" class="custom-control-input">
+    <span class="custom-control-indicator"></span>
+    <span class="custom-control-description">Free</span>
+  </label>
+</div>
+
+  <div class="form-group">
+    <label for="categories">Categories</label>
+    <select multiple class="form-control" id="categories">
+      <option>Speaker Events</option>
+      <option>Parties</option>
+      <option>Sports</option>
+      <option>Local</option>
+      <option>Cultural</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea class="form-control" id="description" rows="3"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Link to Facebook event</label>
+     <input type="url" class="form-control" id="fburl">
+  </div>
+
+
+<label for="image"> Upload images </label>
+  <label class="custom-file">
+    <input type="file" id="image" class="custom-file-input">
+    <span class="custom-file-control"></span>
+  </label>
+  
+  <br>
+
+ <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+	</body>
+</html>
