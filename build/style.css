@@ -1,0 +1,80 @@
+/* Shanieka Pereira css style sheet for Profile */
+
+.Thumbnail{
+    width:"300" ;
+    height:"200" ;
+    display: inline-block;
+}
+.description{
+    text-align: center;
+    line-height: 0.5;
+    font-family: Arial;
+}
+.date{
+    text-align: center;
+    line-height: 0.9;
+}
+.header{
+    font-family: Arial;
+    text-align: center;
+}
+.SavedEvents{
+    font-family: 'Arial';
+}
+
+.YourEvents{
+    font-family: Arial;
+}
+h1{
+    font-family: Cambria;
+    text-align: center;
+}
+h3{
+    font-family: Cambria;
+    text-align: left;
+}
+.Avatar{
+    text-align: center;
+}
+.Username{
+    text-align: center;
+}
+.Info{
+    text-align: center;
+}
+.Event{
+    text-align: center;
+}
+.Location{
+    text-align: center;
+}
+
+a {
+    color:blue;
+    text-decoration: underline;
+  }
+  
+  
+  a:link {
+    color:blue;
+  }
+  
+  a:visited {
+    color:purple ;
+  }
+  
+  a:focus {
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    background-color: white;
+    color: white;
+  } 
+  .ReturnToHomepage{
+      text-align: left;
+  }
