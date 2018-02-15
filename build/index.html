@@ -15,7 +15,7 @@
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
   <link rel='stylesheet prefetch' href='css/__codepen_io_andytran_pen.css'>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
 
   <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
   <!-- Custom CSS goes here -->
@@ -24,228 +24,245 @@
 <body>
 
   <!-- Custom HTML goes here -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Bulletin Board</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">All</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Location</a></li>
-              <li><a href="#">Price</a></li>
-              <li><a href="#">Catergory</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-            <span class="glyphicon glyphicon-search"></span>
+  <div class="row">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
-          <div id="search-box" class="collapse">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-  <!--Main feed-->
-  <div class="container">
-    <!-- Sort by latest date -->
-    <h1 id="latest">Upcoming</h1>
-    <div class="row">
-
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
+          <a class="navbar-brand" href="#">Bulletin Board</a>
         </div>
+
+        <!-- Back to top button -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <!-- Drop down menu-->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">All</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Price</a></li>
+                <li><a href="#">Catergory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Search button -->
+          <form class="navbar-form navbar-left">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <div id="search-box" class="collapse">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
+
+          <!-- Login + Create event -->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/Profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+            <li><a href="/EventForm.html"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+  <!-- Sort by latest date -->
+  <h1 id="latest">Happening Now</h1>
+<div class="row" id="latest">
+
+ <a href="https://www.facebook.com/events/514041098956667/">
+  <div class="col-lg-4 col-sm-6">
+    <!-- Post-->
+    <div class="post-module">
+
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">10</div>
+          <div class="month">Nov</div>
+        </div><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A"/>
       </div>
-
-      <!-- Second tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Third tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Popular events-->
-    <h1 id="sports"> Popular </h1>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Second tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">Cultural</div>
+        <h1 class="title">VariAsians 2017</h1>
+        <h2 class="sub_title">#VeriAsian</h2>
+        <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
       </div>
     </div>
   </div>
+  </a>
 
-  <!--Footer-->
-  <footer class="page-footer indigo center-on-small-only pt-0">
+  <!-- Second tab-->
+  <a href="http://hackholyoke.com/">
+  <div class="col-lg-4 col-sm-6">
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">11</div>
+          <div class="month">Nov</div>
+        </div><img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/429/883/datas/original.png"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">Parties</div>
+        <h1 class="title">Hack Holyoke 2017</h1>
+        <h2 class="sub_title">#Getpumped</h2>
+        <p class="description">The first women's college hackathon, HackHolyoke is a 24-hour hackathon that welcomes 200 hackers from around the country to be fearless, to truly be innovative, and to develop brilliantly new and disruptive technologies.</p>
+      </div>
+    </div>
+  </div>
+</a>
 
-    <!--Footer Links-->
-    <div class="container">
+<a href="https://www.facebook.com/events/132083817503639/">
+  <div class="col-lg-4 col-sm-6">
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day">17</div>
+          <div class="month">Nov</div>
+        </div><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23406081_1731666650177280_7787262046586546869_o.jpg?oh=5a8c9558c25a237ad02fff9eac579a2d&oe=5B05AF36"/>
+      </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <div class="category">Cultural</div>
+        <h1 class="title">Vietnamese Coffee Workshop</h1>
+        <h2 class="sub_title">#Getca-phe-inated</h2>
+        <p class="description">Get ca-phe-inated Vietnamese style! Delicious coffee and snacks included!</p>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
 
-      <!--First row-->
+      <!-- Popular events-->
+      <h1 id="sports"> Popular </h1>
       <div class="row">
-
-        <!--First column-->
-        <div class="col-md-12">
-
-          <div class="footer-socials mb-5 flex-center">
-
-            <!--Facebook-->
-            <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
-            <!--Twitter-->
-            <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
-            <!--Google +-->
-            <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
-            <!--Linkedin-->
-            <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
-            <!--Instagram-->
-            <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
-            <!--Pinterest-->
-            <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
           </div>
         </div>
-        <!--/First column-->
-      </div>
-      <!--/First row-->
-    </div>
-    <!--/Footer Links-->
 
-    <!--Copyright-->
-    <div class="footer-copyright">
-      <div class="container-fluid">
-        © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+        <!-- Second tab-->
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third tab -->
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!--/Copyright-->
 
-  </footer>
-  <!--/Footer-->
+    <!--Footer-->
+    <footer class="page-footer indigo center-on-small-only pt-0">
+
+      <!--Footer Links-->
+      <div class="container">
+
+        <!--First row-->
+        <div class="row">
+
+          <!--First column-->
+          <div class="col-md-12">
+
+            <div class="footer-socials mb-5 flex-center">
+
+              <!--Facebook-->
+              <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+              <!--Twitter-->
+              <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
+              <!--Google +-->
+              <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
+              <!--Linkedin-->
+              <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
+              <!--Instagram-->
+              <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
+              <!--Pinterest-->
+              <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
+            </div>
+          </div>
+          <!--/First column-->
+        </div>
+        <!--/First row-->
+      </div>
+      <!--/Footer Links-->
+
+      <!--Copyright-->
+      <div class="footer-copyright">
+        <div class="container-fluid">
+          © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+        </div>
+      </div>
+      <!--/Copyright-->
+
+    </footer>
+    <!--/Footer-->
+  </div>
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery.min.js"></script>
@@ -253,5 +270,26 @@
   <script src="js/bootstrap.min.js"></script>
   <!-- App code -->
   <script src="js/app.js"></script>
+
+
+  <!-- Needs to be moved to app.js-->
+  <script>
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+      } else {
+        document.getElementById("myBtn").style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 </body>
 </html>
