@@ -1,6 +1,7 @@
-  @import url(https://fonts.googleapis.com/css?family=Raleway);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 body {
-  background: #fff;
+  background: #f0eee2;
+  font-family: 'StandardCT-ExtraBold', Helvetica, Arial, sans-serif;
   font-family: 'proxima-nova-soft', sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
@@ -17,20 +18,19 @@ body {
   right: 0;
 
 }
-
 #Navbar {
   margin: 0% auto;
 }
- h1 {
+h1 {
   color: black;
- }
+}
 
 .row {
   margin-bottom: 7%;
 }
- .col-lg-4 {
+.col-lg-4 {
   border-style: none;
- }
+}
 
 
 .post-module {
@@ -105,7 +105,7 @@ body {
 .post-module .post-content {
   position: absolute;
   bottom: 0;
-  background: #FFFFFF;
+  background: #ffc800;
   width: 100%;
   padding: 30px;
   -webkti-box-sizing: border-box;
@@ -121,7 +121,7 @@ body {
   position: absolute;
   top: -34px;
   left: 0;
-  background: #e74c3c;
+  background: #00c4ff;
   padding: 10px 15px;
   color: #FFFFFF;
   font-size: 14px;
@@ -138,13 +138,13 @@ body {
 .post-module .post-content .sub_title {
   margin: 0;
   padding: 0 0 20px;
-  color: #e74c3c;
+  color: white;
   font-size: 20px;
   font-weight: 400;
 }
 .post-module .post-content .description {
   display: none;
-  color: #666666;
+  color: #ffc800;
   font-size: 14px;
   line-height: 1.8em;
 }
@@ -177,13 +177,13 @@ body {
   clear: both;
 }
 /*.container .column {
-  width: 30%;
-  /**padding: 0 25px;
-  margin: 5% 5%;
-  -webkti-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  float: left;
+width: 30%;
+/**padding: 0 25px;
+margin: 5% 5%;
+-webkti-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+float: left;
 }
 */
 .container .column {
@@ -270,14 +270,34 @@ h1{
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
+.navbar-inverse {
+  background-color:#ff007d !important;
+  border: transparent !important;
+}
+#search-box {
+  background-color: #ff007d !important;
+}
+
 #search-box > .form-control {
- margin-top: 5rem;
- margin-bottom: 5rem;
- border: none;
- background-color: inherit;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  border: none;
 }
 
 #search-box > .form-control:active:focus {
   outline-color: transparent;
   outline: none;
+}
+
+.navbar-brand {
+  color: white !important;
+}
+
+.dropdown-toggle {
+  color: white !important;
+}
+
+.date {
+  background-color: #ffc800 !important;
+  text-align: left;
 }

@@ -24,228 +24,237 @@
 <body>
 
   <!-- Custom HTML goes here -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Bulletin Board</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">All</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Location</a></li>
-              <li><a href="#">Price</a></li>
-              <li><a href="#">Catergory</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="navbar-form navbar-left">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-            <span class="glyphicon glyphicon-search"></span>
+  <div class="row">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
-          <div id="search-box" class="collapse">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-        </form>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-  <!--Main feed-->
-  <div class="container">
-    <!-- Sort by latest date -->
-    <h1 id="latest">Upcoming</h1>
-    <div class="row">
-
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
+          <a class="navbar-brand" href="#">Bulletin Board</a>
         </div>
-      </div>
 
-      <!-- Second tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- Third tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <!-- Drop down menu-->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">All</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Price</a></li>
+                <li><a href="#">Catergory</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+          <!-- Search button -->
+          <form class="navbar-form navbar-left">
+            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+            <div id="search-box" class="collapse">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
 
-    <!-- Popular events-->
-    <h1 id="sports"> Popular </h1>
-    <div class="row">
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
+          <!-- Login + Create event -->
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+            <li><a href="/EventForm.html"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
 
-      <!-- Second tab-->
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-sm-6">
-        <!-- Post-->
-        <div class="post-module">
-          <!-- Thumbnail-->
-          <div class="thumbnail">
-            <div class="date">
-              <div class="day">27</div>
-              <div class="month">Mar</div>
-            </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-          </div>
-          <!-- Post Content-->
-          <div class="post-content">
-            <div class="category">Photos</div>
-            <h1 class="title">City Lights in New York</h1>
-            <h2 class="sub_title">The city that never sleeps.</h2>
-            <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--Footer-->
-  <footer class="page-footer indigo center-on-small-only pt-0">
-
-    <!--Footer Links-->
+    <!--Main feed-->
     <div class="container">
-
-      <!--First row-->
+      <!-- Sort by latest date -->
+      <h1 id="latest">Upcoming</h1>
       <div class="row">
 
-        <!--First column-->
-        <div class="col-md-12">
-
-          <div class="footer-socials mb-5 flex-center">
-
-            <!--Facebook-->
-            <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
-            <!--Twitter-->
-            <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
-            <!--Google +-->
-            <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
-            <!--Linkedin-->
-            <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
-            <!--Instagram-->
-            <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
-            <!--Pinterest-->
-            <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
           </div>
         </div>
-        <!--/First column-->
-      </div>
-      <!--/First row-->
-    </div>
-    <!--/Footer Links-->
 
-    <!--Copyright-->
-    <div class="footer-copyright">
-      <div class="container-fluid">
-        © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+        <!-- Second tab-->
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third tab-->
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular events-->
+      <h1 id="sports"> Popular </h1>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second tab-->
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6">
+          <!-- Post-->
+          <div class="post-module">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
+              </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category">Photos</div>
+              <h1 class="title">City Lights in New York</h1>
+              <h2 class="sub_title">The city that never sleeps.</h2>
+              <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!--/Copyright-->
 
-  </footer>
-  <!--/Footer-->
+    <!--Footer-->
+    <footer class="page-footer indigo center-on-small-only pt-0">
+
+      <!--Footer Links-->
+      <div class="container">
+
+        <!--First row-->
+        <div class="row">
+
+          <!--First column-->
+          <div class="col-md-12">
+
+            <div class="footer-socials mb-5 flex-center">
+
+              <!--Facebook-->
+              <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+              <!--Twitter-->
+              <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
+              <!--Google +-->
+              <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
+              <!--Linkedin-->
+              <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
+              <!--Instagram-->
+              <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
+              <!--Pinterest-->
+              <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
+            </div>
+          </div>
+          <!--/First column-->
+        </div>
+        <!--/First row-->
+      </div>
+      <!--/Footer Links-->
+
+      <!--Copyright-->
+      <div class="footer-copyright">
+        <div class="container-fluid">
+          © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+        </div>
+      </div>
+      <!--/Copyright-->
+
+    </footer>
+    <!--/Footer-->
+  </div>
+
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="js/jquery.min.js"></script>
