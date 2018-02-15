@@ -3,7 +3,7 @@ $(window).load(function() {
     $(this).find('.description').stop().animate({
       height: "toggle",
       opacity: "toggle"
-    }, 300);
+    }, 100);
   });
 });
 
