@@ -281,3 +281,13 @@ h1{
   outline-color: transparent;
   outline: none;
 }
+
+.details-info {
+  text-align: left;
+  color: gray;
+  font-size: 2rem;
+}
+
+.btn-lg-info {
+  size: 150rem;
+}
