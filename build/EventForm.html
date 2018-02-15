@@ -7,17 +7,20 @@
 	<link rel="stylesheet" href="css/event-form.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
 </head>
-<!--<style>
-body {
-	margin: 5% 10%;
-}
-.form-group {
-	max-width: 550px;
-}
-.custom-controls-stacked {
-	max-width: 300px;
-}
-</style>-->
+<style>
+    body {
+        margin: 5% 10%;
+    }
+    .form-group {
+        max-width: 550px;
+    }
+    .custom-controls-stacked {
+        max-width: 300px;
+    }
+    #contact-email, #event-name, #org-name{
+        max-width: 500px;
+    }
+</style>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
 <script source="bootstrap.js"></script>
@@ -46,7 +49,7 @@ $(function(){
 			        <label for="event-name">Name of Event</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="event-name" name="event-name" placeholder="Name of my event is..." required=true>
+			        <input type="text" id="event-name" name="event-name" placeholder="The name for my event is..." required=true>
 			      </div>
 			    </div>
 					<!-- Org name -->
@@ -55,7 +58,7 @@ $(function(){
 			        <label for="org-name">Name of Organizer/Organization</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="org-name" name="org-name" placeholder="My organizer name is..." required=true>
+			        <input type="text" id="org-name" name="org-name" placeholder="My/Our name is..." required=true>
 			      </div>
 			    </div>
 					<!-- Contact email -->
@@ -64,7 +67,7 @@ $(function(){
 			        <label for="contact-email">Contact email</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="contact-email" name="contact-email" placeholder="My contact email is..." required=true>
+			        <input type="text" id="contact-email" name="contact-email" placeholder="I can be reached at..." required=true>
 			      </div>
 			    </div>
 					<!-- Date -->
@@ -97,6 +100,15 @@ $(function(){
 							<input type="number" id="endTime" placeholder="00" min="00" max="59" step="1" required="true">
 						</div>
 					</div>
+                  <!--Location-->
+                  <div class="row">
+			      <div class="col-25">
+			        <label for="location">Location</label>
+			      </div>
+			      <div class="col-75">
+			        <input type="text" id="location" name="location" placeholder="This event is going to be at..." required=true>
+			      </div>
+			    </div>
 					<!-- Fee -->
 					<div class="row">
 						<div class="col-25">
@@ -104,16 +116,16 @@ $(function(){
 						</div>
 						<div class="col-75">
 							<div class="radio">
-								<label for="eventFee"><input type="radio" name="optradio">Free</label>
+								<label for="eventFee"><input type="radio" name="optradio"> Free</label>
 							</div>
 							<div class="radio">
-								<label><input type="radio" name="optradio">$5</label>
+								<label><input type="radio" name="optradio"> $5</label>
 							</div>
 							<div class="radio disabled">
-								<label><input type="radio" name="optradio">$10</label>
+								<label><input type="radio" name="optradio"> $10</label>
 							</div>
 							<div class="radio disabled">
-								<label><input type="radio" name="optradio">Other  <input type="number" name="optradio" min='1'></label>
+								<label><input type="radio" name="optradio"> Other  <input type="number" name="optradio" min='1'></label>
 							</div>
 						</div>
 					</div>
