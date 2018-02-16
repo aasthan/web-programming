@@ -53,28 +53,30 @@ a {
     color:blue;
     text-decoration: underline;
   }
-  
-  
+
+
   a:link {
     color:blue;
   }
-  
+
   a:visited {
     color:purple ;
   }
-  
+
   a:focus {
     text-decoration: underline;
   }
-  
+
   a:hover {
     text-decoration: none;
   }
-  
+
   a:active {
     background-color: white;
     color: white;
-  } 
+  }
   .ReturnToHomepage{
       text-align: left;
   }
+
+  

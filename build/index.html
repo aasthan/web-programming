@@ -18,13 +18,17 @@
   <link rel="stylesheet" href="css/index.css">
 
   <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
+
   <!-- Custom HTML goes here -->
   <div class="row">
+
     <!-- Back to top button -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
 
     <!-- Needs to be moved to app.js -->
     <script>
@@ -54,7 +58,7 @@
           <!-- Drop down menu-->
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
+              <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
               <ul class="dropdown-menu">
                 <li><a href="#">All</a></li>
                 <li role="separator" class="divider"></li>
@@ -67,8 +71,8 @@
 
           <!-- Search button -->
           <form class="navbar-form navbar-left">
-            <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-              <span class="glyphicon glyphicon-search"></span>
+            <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+              <i class="material-icons">search</i>
             </button>
             <div id="search-box" class="collapse">
               <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
@@ -77,8 +81,8 @@
 
           <!-- Login + Create event -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/Profile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-            <li><a href="/EventForm.html"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
+            <a href="/Profile.html"><i class="btn material-icons">face</i></a>
+            <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
