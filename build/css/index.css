@@ -270,13 +270,7 @@ h1{
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.navbar-inverse {
-  background-color:#ff007d !important;
-  border: transparent !important;
-}
-#search-box {
-  background-color: #ff007d !important;
-}
+
 
 #search-box > .form-control {
   margin-top: 5rem;

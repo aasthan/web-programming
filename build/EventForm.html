@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="css/event-form.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+
+	<title>Create a new event</title>
 </head>
 <style>
     body {
@@ -49,7 +51,7 @@ $(function(){
 			        <label for="event-name">Name of Event</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="event-name" name="event-name" placeholder="The name for my event is..." required=true>
+			        <input type="text" id="event-name" name="event-name" placeholder="The name for my event is..." required="true">
 			      </div>
 			    </div>
 					<!-- Org name -->
@@ -58,7 +60,7 @@ $(function(){
 			        <label for="org-name">Name of Organizer/Organization</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="org-name" name="org-name" placeholder="My/Our name is..." required=true>
+			        <input type="text" id="org-name" name="org-name" placeholder="My/Our name is..." required="true">
 			      </div>
 			    </div>
 					<!-- Contact email -->
@@ -67,7 +69,7 @@ $(function(){
 			        <label for="contact-email">Contact email</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="contact-email" name="contact-email" placeholder="I can be reached at..." required=true>
+			        <input type="text" id="contact-email" name="contact-email" placeholder="I can be reached at..." required="true">
 			      </div>
 			    </div>
 					<!-- Date -->
@@ -86,8 +88,8 @@ $(function(){
 							<label for="startTime">Start Time</label>
 						</div>
 						<div class="col-75">
-							<input type="number" id="startTime" placeholder="00" min="00" max="23" step="1" required="true"> :
-							<input type="number" id="startTime" placeholder="00" min="00" max="59" step="1" required="true">
+							<input type="number" id="startTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
+							<input type="number" id="startTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
 						</div>
 					</div>
 					<!-- End time -->
@@ -96,8 +98,8 @@ $(function(){
 							<label for="endTime">End Time</label>
 						</div>
 						<div class="col-75">
-							<input type="number" id="endTime" placeholder="00" min="00" max="23" step="1" required="true"> :
-							<input type="number" id="endTime" placeholder="00" min="00" max="59" step="1" required="true">
+							<input type="number" id="endTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
+							<input type="number" id="endTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
 						</div>
 					</div>
                   <!--Location-->
@@ -106,7 +108,7 @@ $(function(){
 			        <label for="location">Location</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="location" name="location" placeholder="This event is going to be at..." required=true>
+			        <input type="text" id="location" name="location" placeholder="This event is going to be at..." required="true">
 			      </div>
 			    </div>
 					<!-- Fee -->
@@ -125,7 +127,7 @@ $(function(){
 								<label><input type="radio" name="optradio"> $10</label>
 							</div>
 							<div class="radio disabled">
-								<label><input type="radio" name="optradio"> Other  <input type="number" name="optradio" min='1'></label>
+								<label><input type="radio" name="optradio"> Other  <input type="number" name="optradio" min="1"></label>
 							</div>
 						</div>
 					</div>
@@ -174,7 +176,7 @@ $(function(){
 							<label for="fburl">Link to Facebook event</label>
 						</div>
 						<div class="col-75">
-							 <input type="url" id="fburl" name="form-control" placeholder="Link to my event is..." required=true>
+							 <input type="url" id="fburl" name="form-control" placeholder="Link to my event is..." required="true">
 						</div>
 					</div>
 					<!-- Upload Images -->
