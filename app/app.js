@@ -1,3 +1,5 @@
+
+//Show detailed description
 $(window).load(function() {
   $('.post-module').hover(function() {
     $(this).find('.description').stop().animate({
