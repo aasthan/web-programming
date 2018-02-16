@@ -270,8 +270,6 @@ h1{
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-
-
 #search-box > .form-control {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -283,11 +281,11 @@ h1{
   outline: none;
 }
 
-.navbar-brand {
-  color: white !important;
+#search-box-sub {
+  background-color: inherit !important;
 }
 
-.dropdown-toggle {
+.navbar-brand {
   color: white !important;
 }
 
