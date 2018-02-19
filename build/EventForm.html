@@ -1,186 +1,215 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/event-form.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <link rel="stylesheet prefetch" href="css/__codepen_io_andytran_pen.css">
+        <link rel="stylesheet" href="css/event-form.css">
+        <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+            <style>
 
-	<title>Create a new event</title>
-</head>
-<style>
-    body {
-        margin: 5% 10%;
-    }
-    .form-group {
-        max-width: 550px;
-    }
-    .custom-controls-stacked {
-        max-width: 300px;
-    }
-    #contact-email, #event-name, #org-name{
-        max-width: 500px;
-    }
-</style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
-<script source="bootstrap.js"></script>
-<script source="bootstrap.bundle.js"></script>
-<script>
-$(function(){
-	$('.datepicker').datepicker({
-		format: 'mm/dd/yyyy'
-	});
-});
-</script>
-<body>
-  <div class="row">
-		<div class="col-md-7 col-md-offset-3">
-			<h1>
-				<span class="pink">Let's</span>
-				<span class="pink">add</span>
-				<span class="black">an</span>
-				<span class="yellow">event!</span>
-			</h1>
+        </style>
+        <title>Create Event</title>
+    </head>
+    <script src="js/event.js"></script>
+    <body>
+       <section>
+        <div class="row">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bulletin Board</a>
+              </div>
 
-			  <form action="/action_page.php">
-					<!-- Event name -->
-			    <div class="row">
-			      <div class="col-25">
-			        <label for="event-name">Name of Event</label>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <!-- Drop down menu-->
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">All</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="#">Location</a></li>
+                      <li><a href="#">Price</a></li>
+                      <li><a href="#">Catergory</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <!-- Search button -->
+                <form class="navbar-form navbar-left">
+                  <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+                    <i class="material-icons">search</i>
+                  </button>
+                  <div id="search-box" class="collapse">
+                    <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
+                  </div>
+                </form>
+
+                <!-- Login + Create event -->
+                <ul class="nav navbar-nav navbar-right">
+                  <a href="/Profile.html"><i class="btn material-icons">face</i></a>
+                  <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </div>
+        </section>
+        <!--<div class ="ReturnToHomepage">
+            <a href="#">
+                Return to homepage
+            </a>
+        </div> -->
+		<div>
+			<h1>Let's Add An Event!</h1>
+        </div>
+<!-- Event name -->
+           <form>
+			    <div class="form-group row">
+			      <div class="col-25" >
+			        <label class="req" for="event-name">Name of Event</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="event-name" name="event-name" placeholder="The name for my event is..." required="true">
+                        <input type="text" id="fillins" name="event-name" placeholder="The name for the event is..." required="true">
 			      </div>
-			    </div>
-					<!-- Org name -->
-			    <div class="row">
+                </div>
+            
+<!-- Org name -->
+			    <div class="form-group row">
 			      <div class="col-25">
-			        <label for="org-name">Name of Organizer/Organization</label>
+			        <label class="req" for="org-name">Name of Organizer/Organization</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="org-name" name="org-name" placeholder="My/Our name is..." required="true">
+			        <input type="text" id="fillins" name="org-name" placeholder="My/Our name is..." required="true">
 			      </div>
 			    </div>
-					<!-- Contact email -->
-					<div class="row">
+
+<!-- Contact email -->
+					<div class="form-group row">
 			      <div class="col-25">
-			        <label for="contact-email">Contact email</label>
+			        <label class="req" for="contact-email">Contact email</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="contact-email" name="contact-email" placeholder="I can be reached at..." required="true">
+			        <input type="text" id="fillins" name="contact-email" placeholder="I can be reached at..." required="true">
 			      </div>
 			    </div>
-					<!-- Date -->
-					<div class="row">
+            
+<!-- Date -->
+					<div class="form-group row">
 						<div class="col-25">
-							<label for="date">Date</label>
+							<label class="req" for="date">Date</label>
 						</div>
 						<div class="col-75">
-							<input type="date" class="datepicker" id="date" placeholder="MM/DD/YYYY" required="true">
-							<span class="add-on"><i class="icon-th"></i></span>
+							<input type="text" class="date" id="fillins" placeholder="MM/DD/YYYY" required="true">
+
 						</div>
 					</div>
-					<!-- Start time -->
-					<div class="row">
+            
+<!-- Start time -->
+					<div class="form-group row">
 						<div class="col-25">
-							<label for="startTime">Start Time</label>
+							<label class="req" for="startTime">Start Time</label>
 						</div>
 						<div class="col-75">
 							<input type="number" id="startTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
 							<input type="number" id="startTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
 						</div>
-					</div>
-					<!-- End time -->
-					<div class="row">
+                    </div>
+            
+<!-- End time -->
+					<div class="form-group row">
 						<div class="col-25">
-							<label for="endTime">End Time</label>
+							<label class="req" for="endTime">End Time</label>
 						</div>
 						<div class="col-75">
 							<input type="number" id="endTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
 							<input type="number" id="endTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
 						</div>
 					</div>
-                  <!--Location-->
-                  <div class="row">
+               
+<!--Location-->
+                  <div class="form-group row">
 			      <div class="col-25">
-			        <label for="location">Location</label>
+			        <label class="req" class="text-left">Location</label>
 			      </div>
 			      <div class="col-75">
-			        <input type="text" id="location" name="location" placeholder="This event is going to be at..." required="true">
+			        <input type="text" id="fillins" name="location" placeholder="This event is going to be at..." required="true">
 			      </div>
 			    </div>
-					<!-- Fee -->
-					<div class="row">
+                
+<!-- Fee -->
+					<div class="form-group row">
 						<div class="col-25">
-								<label for="eventFee">Event Fee</label>
+								<label class="req" for="eventFee">Entry Fee</label>
 						</div>
 						<div class="col-75">
-							<div class="radio">
-								<label for="eventFee"><input type="radio" name="optradio"> Free</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="optradio"> $5</label>
-							</div>
-							<div class="radio disabled">
-								<label><input type="radio" name="optradio"> $10</label>
-							</div>
-							<div class="radio disabled">
-								<label><input type="radio" name="optradio"> Other  <input type="number" name="optradio" min="1"></label>
-							</div>
+                        <label class="radio-inline"><input name="radio-opt" type="radio">Free</label>
+                        <label class="radio-inline">
+                            <input id="inlineradio2" name="sampleinlineradio" value="option2" type="radio">
+                            $5</label>
+                        <label class="radio-inline">
+                            <input id="inlineradio3" name="sampleinlineradio" value="option3" type="radio">
+                            $10</label>
+				        <div class="radio" style="margin-top: 1px;">
+								<label><input type="radio" name="optradio"> Other Amount (Please specify)</label>
+                                $<input type="number" name="optradio" min="0">
+				        </div>
 						</div>
 					</div>
-					<!--Category-->
-					<div class="row">
+               
+<!--Category-->
+					<div class="form-group row">
 						<div class="col-25">
-							<label for="eventFee">Categories (Select one or more if applicable)</label>
+							<label class="req" for="eventFee">Categories (Select all that applies)</label>
 						</div>
-						<div class="col-75">
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Speaker Event</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Party</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Sports</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Local</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Social</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Cultural</label>
-							</div>
-							<div class="checkbox">
-								<label for="categories"><input type="checkbox" name="optradio">  Other
-									<input type="text" name="optradio" placeholder="Please specify the price..."></label>
-								</div>
+						<div id="fillins" class="col-75">
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Speaking Event</label>
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Party</label>
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Sports</label>
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Local</label>
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Social</label>
+                            <label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Cultural</label>
+							<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Other</label>
+				            <input type="text" id="fillins" name="cat-opt" placeholder="Please specify the category...">
 						</div>
 					</div>
-					<!-- Description-->
-					<div class="row">
+               
+<!-- Description-->
+					<div class="form-group row">
 			      <div class="col-25">
-			        <label for="description">Description</label>
+			        <label class="req" for="description">Description</label>
 			      </div>
 			      <div class="col-75">
-			        <textarea id="description" name="description" placeholder="Write something to describe your event..." style="height:200px" required="true"></textarea>
+			        <textarea id="fillins" name="description" placeholder="Write something about my event..." style="height:200px" required="true"></textarea>
 			      </div>
 			    </div>
-					<!-- Link Event -->
-					<div class="row">
+               
+<!-- Link Event -->
+					<div class="form-group row">
 						<div class="col-25">
 							<label for="fburl">Link to Facebook event</label>
 						</div>
 						<div class="col-75">
-							 <input type="url" id="fburl" name="form-control" placeholder="Link to my event is..." required="true">
+							 <input type="url" id="fillins" name="form-control" placeholder="Link to my event is..." required="true">
 						</div>
 					</div>
-					<!-- Upload Images -->
-					<div class="row">
+               
+<!-- Upload Images -->
+					<div class="form-group row">
 						<div class="col-25">
 							<label for="image"> Upload images </label>
 						</div>
@@ -192,16 +221,12 @@ $(function(){
 						</div>
 					</div>
 
-					<!--Buttons-->
-			    <div class="row">
+<!--Buttons-->
+			    <div class="form-group row">
 						<input type="submit" class="btn btn-success" value="Submit"/>
 						<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>
 			    </div>
-			  </form>
-		</div>
-	</div>
-
-
-
-	</body>
-	</html>
+			 </form>      
+       
+    </body>
+</html>
