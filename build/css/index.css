@@ -77,7 +77,6 @@ h1 {
   top: 20px;
   right: 20px;
   z-index: 1;
-  background: #e74c3c;
   width: 55px;
   height: 55px;
   padding: 12.5px 0;
@@ -295,7 +294,7 @@ h1{
 }
 
 .date {
-  background-color: #ffc800 !important;
+  background-color: #ff007d !important;
   text-align: left;
 }
 
