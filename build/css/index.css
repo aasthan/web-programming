@@ -406,8 +406,9 @@ i.material-icons:hover {
   border-color: inherit !important;
   box-shadow: none;
 }
-/*Carousel*/
 
+
+/*Carousel*/
 .multi-item-carousel{
   .carousel-inner{
     > .item{

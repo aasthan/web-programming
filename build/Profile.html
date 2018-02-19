@@ -98,196 +98,273 @@
         <div class="row">
           <div id="Profile">
               <div class="Avatar">
-                  <img src="../img/Professor.jpg"><!-- Drew this in MS Paint -->
+                  <img src="../img/Professor.jpg">
               </div>
           </div>
         </div>
         <div class="row">
-          <div class="container">
-            <!-- Sort by latest date -->
-            <h1 id="latest">Recently Saved Events</h1>
-            <div class="row">
 
-              <a href="https://www.facebook.com/events/514041098956667/">
-                <div class="col-lg-4 col-sm-6">
-                  <!-- Post-->
-                  <div class="post-module">
+          <!-- Carousel -->
+          <h1 class="headline" id="created">Your Events</h1>
+          <div class="col-md-12">
+            <div class="carousel slide multi-item-carousel" id="theCarousel">
+              <div class="carousel-inner">
 
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">10</div>
-                        <div class="month">Nov</div>
-                      </div><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A"/>
+                <!-- First event -->
+                <div class="item active">
+                  <a href="https://www.facebook.com/events/514041098956667/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">10</div>
+                            <div class="month">Nov</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">$5</div>
+                          <h1 class="title">VariAsians 2017</h1>
+                          <h2 class="sub_title">#VeriAsian</h2>
+                          <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
+                        </div>
+                      </div>
                     </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Cultural</div>
-                      <h1 class="title">VariAsians 2017</h1>
-                      <h2 class="sub_title">#VeriAsian</h2>
-                      <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
-                    </div>
-                  </div>
+                  </a>
                 </div>
-              </a>
 
-              <!-- Second tab-->
-              <a href="http://hackholyoke.com/">
-                <div class="col-lg-4 col-sm-6">
-                  <!-- Post-->
-                  <div class="post-module">
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">11</div>
-                        <div class="month">Nov</div>
-                      </div><img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/429/883/datas/original.png"/>
-                    </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Parties</div>
-                      <h1 class="title">Hack Holyoke 2017</h1>
-                      <h2 class="sub_title">#Getpumped</h2>
-                      <p class="description">The first women's college hackathon, HackHolyoke is a 24-hour hackathon that welcomes 200 hackers from around the country to be fearless, to truly be innovative, and to develop brilliantly new and disruptive technologies.</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
+                <!-- Second event -->
+                <div class="item">
+                  <a href="http://hackholyoke.com/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/429/883/datas/original.png" class="img-responsive">
 
-              <a href="https://www.facebook.com/events/132083817503639/">
-                <div class="col-lg-4 col-sm-6">
-                  <!-- Post-->
-                  <div class="post-module">
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">17</div>
-                        <div class="month">Nov</div>
-                      </div><img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23406081_1731666650177280_7787262046586546869_o.jpg?oh=5a8c9558c25a237ad02fff9eac579a2d&oe=5B05AF36"/>
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">11</div>
+                            <div class="month">Nov</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">Hack Holyoke 2017</h1>
+                          <h2 class="sub_title">#Getpumped</h2>
+                          <p class="description">The first women's college hackathon, HackHolyoke is a 24-hour hackathon that welcomes 200 hackers from around the country to be fearless, to truly be innovative, and to develop brilliantly new and disruptive technologies.</p>
+                        </div>
+                      </div>
                     </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Cultural</div>
-                      <h1 class="title">Vietnamese Coffee Workshop</h1>
-                      <h2 class="sub_title">#Getca-phe-inated</h2>
-                      <p class="description">Get ca-phe-inated Vietnamese style! Delicious coffee and snacks included!</p>
-                    </div>
-                  </div>
+                  </a>
                 </div>
-            </a>
 
-            <!-- Popular events-->
-            <h1 id="sports"> Your Events </h1>
-            <div class="row">
-              <div class="col-lg-4 col-sm-6">
-                <!-- Post-->
-                <div class="post-module">
-                  <!-- Thumbnail-->
-                  <div class="thumbnail">
-                    <div class="date">
-                      <div class="day">27</div>
-                      <div class="month">Mar</div>
-                    </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-                  </div>
-                  <!-- Post Content-->
-                  <div class="post-content">
-                    <div class="category">Photos</div>
-                    <h1 class="title">City Lights in New York</h1>
-                    <h2 class="sub_title">The city that never sleeps.</h2>
-                    <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-                  </div>
+                <!-- Third event -->
+                <div class="item">
+                  <a href="https://www.facebook.com/events/514041098956667/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23406081_1731666650177280_7787262046586546869_o.jpg?oh=5a8c9558c25a237ad02fff9eac579a2d&oe=5B05AF36" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">17</div>
+                            <div class="month">Nov</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">VariAsians 2017</h1>
+                          <h2 class="sub_title">#VeriAsian</h2>
+                          <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
+
+                <!-- Fourth event -->
+                <div class="item">
+                  <a href="https://hackumass.com/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://pbs.twimg.com/profile_images/849109405933195264/cM_sUDyz_400x400.jpg" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">5</div>
+                            <div class="month">Nov</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">HackUmass V</h1>
+                          <h2 class="sub_title">#Hackathon</h2>
+                          <p class="description">At HackUMass we not only focus on creating a collaborative environment for developers/engineers to create awesome software projects, but also give all the tools that you will need to create awesome hardware hacks!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!--  Example item end -->
               </div>
-
-              <!-- Second tab-->
-              <div class="col-lg-4 col-sm-6">
-                <!-- Post-->
-                <div class="post-module">
-                  <!-- Thumbnail-->
-                  <div class="thumbnail">
-                    <div class="date">
-                      <div class="day">27</div>
-                      <div class="month">Mar</div>
-                    </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-                  </div>
-                  <!-- Post Content-->
-                  <div class="post-content">
-                    <div class="category">Photos</div>
-                    <h1 class="title">City Lights in New York</h1>
-                    <h2 class="sub_title">The city that never sleeps.</h2>
-                    <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Third tab -->
-              <div class="col-lg-4 col-sm-6">
-                <!-- Post-->
-                <div class="post-module">
-                  <!-- Thumbnail-->
-                  <div class="thumbnail">
-                    <div class="date">
-                      <div class="day">27</div>
-                      <div class="month">Mar</div>
-                    </div><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"/>
-                  </div>
-                  <!-- Post Content-->
-                  <div class="post-content">
-                    <div class="category">Photos</div>
-                    <h1 class="title">City Lights in New York</h1>
-                    <h2 class="sub_title">The city that never sleeps.</h2>
-                    <p class="description">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
-                  </div>
-                </div>
-              </div>
+              <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
             </div>
           </div>
+        </div>
 
-          <!--Footer-->
-          <footer class="page-footer indigo center-on-small-only pt-0">
+        <div class="row">
+          <!-- Carousel -->
+          <h1 class="headline" id="saved">Recently Saved Events</h1>
+          <div class="col-md-12">
+            <div class="carousel slide multi-item-carousel" id="theCarousel2">
+              <div class="carousel-inner">
 
-            <!--Footer Links-->
-            <div class="container">
+                <!-- First event -->
+                <div class="item active">
+                  <a href="https://www.facebook.com/events/376841992776910/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t31.0-8/26850251_1622436641170333_814480955334206337_o.jpg?oh=c7ad470230979e2a194e661ad2dc6394&oe=5B1A7047" class="img-responsive">
 
-              <!--First row-->
-              <div class="row">
-
-                <!--First column-->
-                <div class="col-md-12">
-
-                  <div class="footer-socials mb-5 flex-center">
-
-                    <!--Facebook-->
-                    <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
-                    <!--Twitter-->
-                    <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
-                    <!--Google +-->
-                    <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
-                    <!--Linkedin-->
-                    <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
-                    <!--Instagram-->
-                    <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
-                    <!--Pinterest-->
-                    <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text"> </i></a>
-                  </div>
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">28</div>
+                            <div class="month">Jan</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">DBJ Dance Crew Auditions Spring 2018</h1>
+                          <h2 class="sub_title">#LetsDance!</h2>
+                          <p class="description">DBJ Dance Crew will be holding auditions for the upcoming season! All 5-College students / alumni are welcome!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
-                <!--/First column-->
-              </div>
-              <!--/First row-->
-            </div>
-            <!--/Footer Links-->
 
-            <!--Copyright-->
-            <div class="footer-copyright">
-              <div class="container-fluid">
-                © 2016 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
+                <!-- Second event -->
+                <div class="item">
+                  <a href="https://www.mtholyoke.edu/events/68170/midsummer-nights-dream-william-shakespeare-directed-noah-tuleja">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://s-media-cache-ak0.pinimg.com/474x/9a/e4/14/9ae414f46033f591df1d47d0647f6f75.jpg" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">18</div>
+                            <div class="month">Apr</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">$8</div>
+                          <h1 class="title">A Midsummer Night's Dream</h1>
+                          <h2 class="sub_title">#NoahTuleja</h2>
+                          <p class="description">Join us for one of Shakespeare's most endearing comedies:  an evening of lovers' quarrels, mystical machination, adventures in the wilderness, topped with a heavy dose of fairy dust!</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Third event -->
+                <div class="item">
+                  <a href="https://www.facebook.com/events/1618034148279755/">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="https://scontent.fzty2-1.fna.fbcdn.net/v/t31.0-8/27355899_1710507275668806_3821428820594264078_o.jpg?oh=97bf98350a3ce8f0003070fe612bb1a4&oe=5B0044D9" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">19</div>
+                            <div class="month">Mar</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">MHC Study Abroad Info-sessions</h1>
+                          <h2 class="sub_title">#StudyAbroad</h2>
+                          <p class="description">Sessions will cover academic planning, approved programs, types of programs, finances and scholarships, application procedures and deadlines, and credit transfer.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Fourth event -->
+                <div class="item">
+                  <a href="http://www.umass.edu/events/opera-workshop-hansel-and">
+                    <div class="col-lg-4 col-sm-6">
+                      <div class="post-module">
+                        <img src="http://www.recorder.com/getattachment/6a311332-47c5-42c6-8aa3-fbefc35c3197/AC-calendar-021518-ph01" class="img-responsive">
+
+                        <!-- Thumbnail-->
+                        <div class="thumbnail">
+                          <div class="date">
+                            <div class="day">18</div>
+                            <div class="month">Feb</div>
+                          </div>
+                        </div>
+                        <!-- Post Content-->
+                        <div class="post-content">
+                          <div class="category">Free</div>
+                          <h1 class="title">'Hansel and Gretel'</h1>
+                          <h2 class="sub_title">#OperaWorkshop</h2>
+                          <p class="description">The Department of Music and Dance presents the Opera Workshop's performance of "Hansel and Gretel."</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!--  Example item end -->
               </div>
+              <a class="left carousel-control" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              <a class="right carousel-control" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
             </div>
-            <!--/Copyright-->
-          </footer>
-          <!--/Footer-->
+          </div>
         </div>
-        </div>
+
+        <!--Footer-->
+        <div class="row">
+          <footer class="Footer">
+            <ul class="Footer-items">
+              <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
+                <span class="Footer-icon fa fa-twitter"></span>
+              </a>
+            </li>
+            <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
+              <span class="Footer-icon fa fa-github"></span>
+            </a>
+          </li>
+        <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
+          <span class="Footer-icon fa fa-linkedin"></span>
+        </a>
+      </li>
+      <li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
+        <span class="Footer-icon fa fa-envelope"></span>
+      </a>
+    </li>
+    </ul>
+    </footer>
+    <!--/Footer-->
+    </div>
 
 
         <!-- Saved events -->
