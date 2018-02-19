@@ -18,12 +18,16 @@
   <link rel="stylesheet" href="css/event-details.css">
 
   <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
-  <!-- Custom CSS goes here -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Custom CSS for event details -->
 </head>
 
 <body>
 
-  <!-- Custom HTML goes here -->
+  <!-- Nav bar -->
+  <!-- Nav bar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -39,9 +43,10 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <!-- Drop down menu-->
         <ul class="nav navbar-nav">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter By <span class="caret"></span></a>
+            <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
             <ul class="dropdown-menu">
               <li><a href="#">All</a></li>
               <li role="separator" class="divider"></li>
@@ -51,21 +56,26 @@
             </ul>
           </li>
         </ul>
+
+        <!-- Search button -->
         <form class="navbar-form navbar-left">
-          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-            <span class="glyphicon glyphicon-search"></span>
+          <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+            <i class="material-icons">search</i>
           </button>
           <div id="search-box" class="collapse">
-            <input type="text" class="form-control" placeholder="Search">
+            <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
           </div>
         </form>
+
+        <!-- Login + Create event -->
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Create Event</a></li>
+          <a href="/Profile.html"><i class="btn material-icons">face</i></a>
+          <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+
 
   <!--Main feed-->
   <div class="container">
