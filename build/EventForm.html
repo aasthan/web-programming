@@ -11,12 +11,9 @@
         <link rel="stylesheet" href="css/event-form.css">
         <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
-            <style>
 
-        </style>
         <title>Create Event</title>
     </head>
-    <script src="js/event.js"></script>
     <body>
        <section>
         <div class="row">
@@ -68,6 +65,7 @@
             </div><!-- /.container-fluid -->
           </nav>
         </div>
+        </div>
         </section>
         <!--<div class ="ReturnToHomepage">
             <a href="#">
@@ -78,7 +76,7 @@
 			<h1>Let's Add An Event!</h1>
         </div>
 <!-- Event name -->
-           <form>
+           <form class="form">
 			    <div class="form-group row">
 			      <div class="col-25" >
 			        <label class="req" for="event-name">Name of Event</label>
@@ -114,7 +112,7 @@
 							<label class="req" for="date">Date</label>
 						</div>
 						<div class="col-75">
-							<input type="text" class="date" id="fillins" placeholder="MM/DD/YYYY" required="true">
+							<input type="text" class="text" id="fillins" placeholder="MM/DD/YYYY" required="true">
 
 						</div>
 					</div>
@@ -222,11 +220,17 @@
 					</div>
 
 <!--Buttons-->
-			    <div class="form-group row">
+			    <div class="form-group row subutton">
 						<input type="submit" class="btn btn-success" value="Submit"/>
 						<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>
 			    </div>
 			 </form>      
        
     </body>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- App code -->
+    <script src="js/app.js"></script>
 </html>
