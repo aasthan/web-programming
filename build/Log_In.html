@@ -21,85 +21,110 @@
 
 <body>
   <!-- Back to top button -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
 
-    <!-- Needs to be moved to app.js -->
-    <script>
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
+  <!-- Needs to be moved to app.js -->
+  <script>
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
 
-    <!-- Nav bar -->
-    <div class="row">
-      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+  <!-- Nav bar -->
+  <div class="row">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html">Bulletin Board</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <!-- Drop down menu-->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">All</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Price</a></li>
+                <li><a href="#">Catergory</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Search button -->
+          <form class="navbar-form navbar-left">
+            <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+              <i class="material-icons">search</i>
             </button>
-            <a class="navbar-brand" href="/index.html">Bulletin Board</a>
-          </div>
+            <div id="search-box" class="collapse">
+              <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
+            </div>
+          </form>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="navbar-collapse-1">
-            <!-- Drop down menu-->
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">All</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Location</a></li>
-                  <li><a href="#">Price</a></li>
-                  <li><a href="#">Catergory</a></li>
-                </ul>
-              </li>
-            </ul>
-
-            <!-- Search button -->
-            <form class="navbar-form navbar-left">
-              <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-                <i class="material-icons">search</i>
-              </button>
-              <div id="search-box" class="collapse">
-                <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
-              </div>
-            </form>
-
-            <!-- Login + Create event -->
-            <ul class="nav navbar-nav navbar-right">
-              <a href="/Profile.html"><i class="btn material-icons">face</i></a>
-              <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-    </div>
+          <!-- Login + Create event -->
+          <ul class="nav navbar-nav navbar-right">
+            <a href="/Profile.html"><i class="btn material-icons">face</i></a>
+            <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
   <div class="container">
     <div class="info">
-      <h1>welcome!</h1>
+      <h1>Welcome!</h1>
     </div>
   </div>
   <div class="form">
     <div class="image"><img src=""/></div>
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button>Log In</button>
-      <p class="message">Not Registered? <a href="Sign_Up.html">Create an account</a></p>
+    <input type="text" placeholder="Username"/>
+    <input type="password" placeholder="Password"/>
+    <button>Log In</button>
+    <p class="message">Not Registered? <a href="Sign_Up.html">Create an account</a></p>
   </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="js/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- App code -->
-  <script src="js/app.js"></script>
+  <!--Footer-->
+  <div class="row">
+    <footer class="Footer">
+      <ul class="Footer-items">
+        <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
+          <span class="Footer-icon fa fa-twitter"></span>
+        </a>
+      </li>
+      <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
+        <span class="Footer-icon fa fa-github"></span>
+      </a>
+    </li>
+    <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
+      <span class="Footer-icon fa fa-linkedin"></span>
+    </a>
+  </li>
+  <li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
+    <span class="Footer-icon fa fa-envelope"></span>
+  </a>
+</li>
+</ul>
+</footer>
+</div>
+<!--/Footer-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!-- App code -->
+<script src="js/app.js"></script>
 </body>
 </html>
