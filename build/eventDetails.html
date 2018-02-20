@@ -1,294 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Bulletin Board</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Bulletin Board</title>
 
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+        <link rel='stylesheet prefetch' href='css/__codepen_io_andytran_pen.css'>
+        <link rel="stylesheet" href="css/event-details.css">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
 
-  <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-  <link rel='stylesheet prefetch' href='css/__codepen_io_andytran_pen.css'>
+    <body>
+        <!-- Back to top button -->
+        <div class="row">
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
+        </div>
 
-  <link rel="stylesheet" href="css/event-details.css">
+        <!-- Needs to be moved to app.js -->
+        <script>
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
 
-  <link href='http://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
+    <!-- Nav bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Bulletin Board</a>
+            </div>
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
 
-  <!-- Custom CSS for event details -->
-</head>
+                <!-- Drop down menu-->
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">All</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Location</a></li>
+                            <li><a href="#">Price</a></li>
+                            <li><a href="#">Catergory</a></li>
+                        </ul>
+                    </li>
+                </ul>
 
-<body>
-<div class="row">
-   <!-- Back to top button -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
+                <!-- Search button -->
+                <form class="navbar-form navbar-left">
+                    <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+                    <i class="material-icons">search</i>
+                    </button>
 
-    <!-- Needs to be moved to app.js -->
-    <script>
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
+                    <div id="search-box" class="collapse">
+                        <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
 
-  <!-- Nav bar -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Bulletin Board</a>
+                <!-- Login + Create event -->
+                <ul class="nav navbar-nav navbar-right">
+                  <a href="/Profile.html"><i class="btn material-icons">face</i></a>
+                  <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!--Main feed-->
+    <div class="container">
+
+        <!-- Sort by latest date -->
+        <h1>Event Details</h1>
+        <div class="row">
+          <div class="col-lg-6 spacing">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" class="img-responsive">
+        </div>
+
+        <div class="col-lg-6 spacing">
+            <div class="details-info">
+              <span class="title"> Name: </span> <span> City Lights in New York</span>
+              <hr class="line">
+              <span class="title">Date: </span> <span> May 29th, 2090</span>
+              <hr class="line">
+              <span class="title">Price:</span> <span>Free</span>
+              <hr class="line">
+              <span class="title">Description: </span> <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
+              <hr class="line">
+              <span class="title">Location: </span><span>Pluto, Milky Way</span>
+              <hr class="line"> 
+              <span class="title">Link to website: </span> <span><a href ="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> City Lights in New York </a></span>
+              <hr class="line">
+              <span class="title">Tags:</span> <span>Amusement, Travelling</span>
+              <hr class="line">
+          </div>
       </div>
+    </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbar-collapse-1">
-        <!-- Drop down menu-->
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">All</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Location</a></li>
-              <li><a href="#">Price</a></li>
-              <li><a href="#">Catergory</a></li>
+    <!-- Save button -->
+    <div class="row">
+        <div class="col-lg-6">
+            <input type="submit" class="btn btn-info btn-save" value="Save Event"/>
+        </div>
+    </div>
+
+    <!-- Google Map -->
+    <div class="row">
+        <h1>Event Map</h1>
+        <div class="col-lg-12"">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="row">
+        <h1 class="headline" id="latest">Happening Now</h1>
+        <div class="col-md-12">
+            <div class="carousel slide multi-item-carousel" id="theCarousel">
+                <div class="carousel-inner">
+
+                    <!-- First event -->
+                    <div class="item active">
+                        <a href="https://www.facebook.com/events/514041098956667/">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="post-module">
+                                <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A" class="img-responsive">
+
+                                <!-- Thumbnail-->
+                                <div class="thumbnail">
+                                    <div class="date">
+                                        <div class="day">10</div>
+                                            <div class="month">Nov</div>
+                                    </div>
+                                </div>
+
+                                <!-- Post Content-->
+                                <div class="post-content">
+                                    <div class="category">$5</div>
+                                    <h1 class="title">VariAsians 2017</h1>
+                                    <h2 class="sub_title">#VeriAsian</h2>
+                                    <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!-- Second event -->
+                    <div class="item">
+                        <a href="http://hackholyoke.com/">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="post-module">
+                                <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/429/883/datas/original.png" class="img-responsive">
+
+                                <!-- Thumbnail-->
+                                <div class="thumbnail">
+                                    <div class="date">
+                                         <div class="day">11</div>
+                                         <div class="month">Nov</div>
+                                    </div>
+                                </div>
+
+                                <!-- Post Content-->
+                                <div class="post-content">
+                                    <div class="category">Free</div>
+                                    <h1 class="title">Hack Holyoke 2017</h1>
+                                    <h2 class="sub_title">#Getpumped</h2>
+                                    <p class="description">The first women's college hackathon, HackHolyoke is a 24-hour hackathon that welcomes 200 hackers from around the country to be fearless, to truly be innovative, and to develop brilliantly new and disruptive technologies.</p>
+                                </div>
+                             </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!-- Third event -->
+                    <div class="item">
+                        <a href="https://www.facebook.com/events/514041098956667/">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="post-module">
+                                <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23406081_1731666650177280_7787262046586546869_o.jpg?oh=5a8c9558c25a237ad02fff9eac579a2d&oe=5B05AF36" class="img-responsive">
+
+                                <!-- Thumbnail-->
+                                <div class="thumbnail">
+                                    <div class="date">
+                                        <div class="day">17</div>
+                                        <div class="month">Nov</div>
+                                    </div>
+                                </div>
+
+                                <!-- Post Content-->
+                                <div class="post-content">
+                                    <div class="category">Free</div>
+                                    <h1 class="title">VariAsians 2017</h1>
+                                    <h2 class="sub_title">#VeriAsian</h2>
+                                    <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!-- Fourth event -->
+                    <div class="item">
+                        <a href="https://hackumass.com/">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="post-module">
+                                <img src="https://pbs.twimg.com/profile_images/849109405933195264/cM_sUDyz_400x400.jpg" class="img-responsive">
+
+                                <!-- Thumbnail-->
+                                <div class="thumbnail">
+                                    <div class="date">
+                                        <div class="day">5</div>
+                                        <div class="month">Nov</div>
+                                    </div>
+                                </div>
+
+                                <!-- Post Content-->
+                                <div class="post-content">
+                                    <div class="category">Free</div>
+                                    <h1 class="title">HackUmass V</h1>
+                                    <h2 class="sub_title">#Hackathon</h2>
+                                    <p class="description">At HackUMass we not only focus on creating a collaborative environment for developers/engineers to create awesome software projects, but also give all the tools that you will need to create awesome hardware hacks!</p>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <!--  Example item end -->
+                    <div>
+                        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="row">
+        <footer class="Footer">
+            <ul class="Footer-items">
+                <li class="Footer-item">
+                    <a target="_blank" href="https://twitter.com/" class="Footer-link">
+                        <span class="Footer-icon fa fa-twitter"></span>
+                    </a>
+                </li>
+
+                <li class="Footer-item">
+                    <a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
+                        <span class="Footer-icon fa fa-github"></span>
+                    </a>
+                </li>
+
+                <li class="Footer-item">
+                    <a target="_blank" href="https://www.linkedin.com" class="Footer-link">
+                        <span class="Footer-icon fa fa-linkedin"></span>
+                    </a>
+                </li>
+
+                <li class="Footer-item">
+                    <a target="_blank" href="https://mail.google.com/" class="Footer-link">
+                        <span class="Footer-icon fa fa-envelope"></span>
+                    </a>
+                </li>
             </ul>
-          </li>
-        </ul>
-
-        <!-- Search button -->
-        <form class="navbar-form navbar-left">
-          <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
-            <i class="material-icons">search</i>
-          </button>
-          <div id="search-box" class="collapse">
-            <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
-          </div>
-        </form>
-
-        <!-- Login + Create event -->
-        <ul class="nav navbar-nav navbar-right">
-          <a href="/Profile.html"><i class="btn material-icons">face</i></a>
-          <a href="/EventForm.html"><i class="btn material-icons">add</i></a>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!--Main feed-->
-  <div class="container">
-    <!-- Sort by latest date -->
-    <h1>Event Details</h1>
-    <div class="row">
-      <div class="col-lg-6 spacing">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg" class="img-responsive">
-      </div>
-
-      <div class="col-lg-6 spacing">
-        <div class="details-info">
-          <span class="title"> Name: </span> <span> City Lights in New York</span>
-          <hr class="line">
-          <span class="title">Date: </span> <span> May 29th, 2090</span>
-          <hr class="line">
-          <span class="title">Price:</span> <span>Free</span>
-          <hr class="line">
-           <span class="title">Description: </span> <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
-           <hr class="line">
-           <span class="title">Location: </span><span>Pluto, Milky Way</span>
-           <hr class="line"> 
-          <span class="title">Link to website: </span> <span><a href ="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> City Lights in New York </a></span>
-          <hr class="line">
-          <span class="title">Tags:</span> <span>Amusement, Travelling</span>
-          <hr class="line">
-        </div>
-      </div>
+        </footer>
     </div>
 
-<!-- Save button -->
-
-       <div class="row">
-       <div class="col-lg-6">
-        <input type="submit" class="btn btn-info btn-save" value="Save Event"/>
-      </div>
-      </div>
-
-<!-- Google Map -->
-    <div class="row">
-      <h1>Event Map</h1>
-      <div class="col-lg-12"">
-        <div id="map"></div>
-      </div>
-    </div>
-
-      <!-- Carousel -->
-       <div class="row">
-      <h1 class="headline" id="latest">Happening Now</h1>
-      <div class="col-md-12">
-        <div class="carousel slide multi-item-carousel" id="theCarousel">
-          <div class="carousel-inner">
-
-            <!-- First event -->
-            <div class="item active">
-              <a href="https://www.facebook.com/events/514041098956667/">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="post-module">
-                    <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A" class="img-responsive">
-
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">10</div>
-                        <div class="month">Nov</div>
-                      </div>
-                    </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">$5</div>
-                      <h1 class="title">VariAsians 2017</h1>
-                      <h2 class="sub_title">#VeriAsian</h2>
-                      <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Second event -->
-            <div class="item">
-              <a href="http://hackholyoke.com/">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="post-module">
-                    <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_thumbnails/000/429/883/datas/original.png" class="img-responsive">
-
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">11</div>
-                        <div class="month">Nov</div>
-                      </div>
-                    </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Free</div>
-                      <h1 class="title">Hack Holyoke 2017</h1>
-                      <h2 class="sub_title">#Getpumped</h2>
-                      <p class="description">The first women's college hackathon, HackHolyoke is a 24-hour hackathon that welcomes 200 hackers from around the country to be fearless, to truly be innovative, and to develop brilliantly new and disruptive technologies.</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Third event -->
-            <div class="item">
-              <a href="https://www.facebook.com/events/514041098956667/">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="post-module">
-                    <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23406081_1731666650177280_7787262046586546869_o.jpg?oh=5a8c9558c25a237ad02fff9eac579a2d&oe=5B05AF36" class="img-responsive">
-
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">17</div>
-                        <div class="month">Nov</div>
-                      </div>
-                    </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Free</div>
-                      <h1 class="title">VariAsians 2017</h1>
-                      <h2 class="sub_title">#VeriAsian</h2>
-                      <p class="description">Join MHC Asian Students Association for one of fall semester’s biggest cultural showcases, VariAsians. On November 10, 2017, enjoy a variety of Asian cuisine, performances, and a fashion show!</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Fourth event -->
-            <div class="item">
-              <a href="https://hackumass.com/">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="post-module">
-                    <img src="https://pbs.twimg.com/profile_images/849109405933195264/cM_sUDyz_400x400.jpg" class="img-responsive">
-
-                    <!-- Thumbnail-->
-                    <div class="thumbnail">
-                      <div class="date">
-                        <div class="day">5</div>
-                        <div class="month">Nov</div>
-                      </div>
-                    </div>
-                    <!-- Post Content-->
-                    <div class="post-content">
-                      <div class="category">Free</div>
-                      <h1 class="title">HackUmass V</h1>
-                      <h2 class="sub_title">#Hackathon</h2>
-                      <p class="description">At HackUMass we not only focus on creating a collaborative environment for developers/engineers to create awesome software projects, but also give all the tools that you will need to create awesome hardware hacks!</p>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!--  Example item end -->
-          </div>
-          <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-          <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-        </div>
-      </div>
-    </div>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- App code -->
+    <script src="js/mapApp.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s  &callback=initMap">
+    </script>
     
-</div>
- <div class="row">
-      <!--Footer-->
-      <footer class="Footer">
-        <ul class="Footer-items">
-          <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
-            <span class="Footer-icon fa fa-twitter"></span>
-          </a>
-        </li>
-        <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
-          <span class="Footer-icon fa fa-github"></span>
-        </a>
-      </li>
-    <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
-      <span class="Footer-icon fa fa-linkedin"></span>
-    </a>
-  </li>
-  <li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
-    <span class="Footer-icon fa fa-envelope"></span>
-  </a>
-</li>
-</ul>
-</footer>
-<!--/Footer-->
-
-</div>
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="js/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- App code -->
-  <script src="js/mapApp.js"></script>
-  <script src="js/app.js"></script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s  &callback=initMap">
-</script>
-</body>
+    </body>
 </html>
