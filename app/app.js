@@ -9,6 +9,10 @@ $(window).load(function() {
   });
 });
 
+$('.dropdown-menu a').click( function () {
+  var text = $(this).text();
+  document.getElementById("newHeader").innerHTML = "Search results: " + text;
+});
 
 // When the user scrolls down 70px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -42,3 +46,5 @@ $('.multi-item-carousel .item').each(function(){
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });
+
+

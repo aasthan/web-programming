@@ -41,6 +41,7 @@ h1 {
 
 .post-module {
   position: relative;
+  margin: 10px 1%;
   z-index: 1;
   display: block;
   background: #FFFFFF;
