@@ -659,8 +659,8 @@ i.material-icons:hover {
 
 /*Footer*/
 .Footer {
-  position : absolute;
-  top : 50%;
+  position : static;
+  top : 100%;
   right : 5%;
   transform:translateY( -50% );
 }
