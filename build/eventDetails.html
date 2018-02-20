@@ -4,44 +4,38 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>Bulletin Board</title>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
   <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link rel="stylesheet prefetch" href="css/__codepen_io_andytran_pen.css">
-
   <link rel="stylesheet" href="css/event-details.css">
-
   <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <!-- Custom CSS for event details -->
 </head>
 
 <body>
-<div class="row">
-   <!-- Back to top button -->
+  <!-- Back to top button -->
+  <div class="row">
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="btn material-icons">keyboard_arrow_up</i></button>
+  </div>
 
-    <!-- Needs to be moved to app.js -->
-    <script>
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-    </script>
+  <!-- Needs to be moved to app.js -->
+  <script>
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+  </script>
 
   <!-- Nav bar -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -54,6 +48,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
+
         <!-- Drop down menu-->
         <ul class="nav navbar-nav">
           <li class="dropdown">
@@ -73,6 +68,7 @@
           <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
             <i class="material-icons">search</i>
           </button>
+
           <div id="search-box" class="collapse">
             <input id="search-box-sub" type="text" class="form-control" placeholder="Search">
           </div>
@@ -90,6 +86,7 @@
 
   <!--Main feed-->
   <div class="container">
+
     <!-- Sort by latest date -->
     <h1>Event Details</h1>
     <div class="row">
@@ -105,10 +102,10 @@
           <hr class="line">
           <span class="title">Price:</span> <span>Free</span>
           <hr class="line">
-           <span class="title">Description: </span> <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
-           <hr class="line">
-           <span class="title">Location: </span><span>Pluto, Milky Way</span>
-           <hr class="line">
+          <span class="title">Description: </span> <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span>
+          <hr class="line">
+          <span class="title">Location: </span><span>Pluto, Milky Way</span>
+          <hr class="line">
           <span class="title">Link to website: </span> <span><a href ="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> City Lights in New York </a></span>
           <hr class="line">
           <span class="title">Tags:</span> <span>Amusement, Travelling</span>
@@ -117,15 +114,15 @@
       </div>
     </div>
 
-<!-- Save button -->
 
-       <div class="row">
-       <div class="col-lg-6">
+    <!-- Save button -->
+    <div class="row">
+      <div class="col-lg-6">
         <input type="submit" class="btn btn-info btn-save" value="Save Event"/>
       </div>
-      </div>
+    </div>
 
-<!-- Google Map -->
+    <!-- Google Map -->
     <div class="row">
       <h1>Event Map</h1>
       <div class="col-lg-12">
@@ -133,8 +130,8 @@
       </div>
     </div>
 
-      <!-- Carousel -->
-       <div class="row">
+    <!-- Carousel -->
+    <div class="row">
       <h1 class="headline" id="latest">Happening Now</h1>
       <div class="col-md-12">
         <div class="carousel slide multi-item-carousel" id="theCarousel">
@@ -154,6 +151,7 @@
                         <div class="month">Nov</div>
                       </div>
                     </div>
+
                     <!-- Post Content-->
                     <div class="post-content">
                       <div class="category">$5</div>
@@ -180,6 +178,7 @@
                         <div class="month">Nov</div>
                       </div>
                     </div>
+
                     <!-- Post Content-->
                     <div class="post-content">
                       <div class="category">Free</div>
@@ -206,6 +205,7 @@
                         <div class="month">Nov</div>
                       </div>
                     </div>
+
                     <!-- Post Content-->
                     <div class="post-content">
                       <div class="category">Free</div>
@@ -232,6 +232,7 @@
                         <div class="month">Nov</div>
                       </div>
                     </div>
+
                     <!-- Post Content-->
                     <div class="post-content">
                       <div class="category">Free</div>
@@ -245,51 +246,56 @@
             </div>
 
             <!--  Example item end -->
+            <div>
+              <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+              <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
           </div>
-          <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-          <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
       </div>
     </div>
 
-
-</div>
- <div class="row">
-      <!--Footer-->
+    <!--Footer-->
+    <div class="row">
       <footer class="Footer">
         <ul class="Footer-items">
-          <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
-            <span class="Footer-icon fa fa-twitter"></span>
-          </a>
-        </li>
-        <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
-          <span class="Footer-icon fa fa-github"></span>
-        </a>
-      </li>
-    <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
-      <span class="Footer-icon fa fa-linkedin"></span>
-    </a>
-  </li>
-  <li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
-    <span class="Footer-icon fa fa-envelope"></span>
-  </a>
-</li>
-</ul>
-</footer>
-<!--/Footer-->
+          <li class="Footer-item">
+            <a target="_blank" href="https://twitter.com/" class="Footer-link">
+              <span class="Footer-icon fa fa-twitter"></span>
+            </a>
+          </li>
 
-</div>
+          <li class="Footer-item">
+            <a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
+              <span class="Footer-icon fa fa-github"></span>
+            </a>
+          </li>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="js/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
-  <!-- App code -->
-  <script src="js/mapApp.js"></script>
-  <script src="js/app.js"></script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s  &callback=initMap">
-</script>
-</div>
+          <li class="Footer-item">
+            <a target="_blank" href="https://www.linkedin.com" class="Footer-link">
+              <span class="Footer-icon fa fa-linkedin"></span>
+            </a>
+          </li>
+
+          <li class="Footer-item">
+            <a target="_blank" href="https://mail.google.com/" class="Footer-link">
+              <span class="Footer-icon fa fa-envelope"></span>
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- App code -->
+    <script src="js/mapApp.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s  &callback=initMap">
+    </script>
+  </div>
 </body>
 </html>

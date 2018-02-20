@@ -92,7 +92,7 @@ body {
   position: absolute;
   margin: auto;
   top: 0; right: 0; left: 0; bottom: 0;
-  width: 120px; height: 400px;
+  width: 120px; height: 120px;
   border-radius: 120px;
   text-align: center;
   cursor: pointer;
@@ -278,7 +278,7 @@ h1 {
 }
 .post-module .post-content .description {
   display: none;
-  color: white;
+  color: #ffc800;
   font-size: 14px;
   line-height: 1.8em;
 }
@@ -337,7 +337,7 @@ float: left;
   padding: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #33333;
+  color: #333333;
 }
 .container .info span {
   color: #666666;
@@ -379,10 +379,9 @@ h1{
   border:none;
   background:rgba(0, 0, 0, 0.4);
   background:inherit;
-  padding:20px 20px; #000;
-  color:#1b1b1b;
+  padding:20px 20px #000000;
+  color: #1b1b1b; 
 }
-
 .footer{
   font-size:8px;
   color:#fff;
@@ -546,6 +545,7 @@ i.material-icons:hover {
     > .item{
       transition: 500ms ease-in-out left;
     }
+    
     .active{
       &.left{
         left:-33%;
@@ -561,8 +561,8 @@ i.material-icons:hover {
       left: -33%;
     }
     @media all and (transform-3d), (-webkit-transform-3d) {
-      > .item{
-        // use your favourite prefixer here
+       .item{
+        /* use your favourite prefixer here*/
         transition: 500ms ease-in-out left;
         transition: 500ms ease-in-out all;
         backface-visibility: visible;
@@ -570,6 +570,7 @@ i.material-icons:hover {
       }
     }
   }
+  
   .carouse-control{
     &.left, &.right{
       background-image: none;
@@ -655,7 +656,7 @@ i.material-icons:hover {
     display: block;
     visibility: visible;
   }
-}
+
 
 /*Footer*/
 .Footer {
@@ -727,10 +728,11 @@ i.material-icons:hover {
   font-size : 1.3em;
 }
 
-.Footer-link:hover {
-  .Footer-icon {
+.Footer-link:hover { 
+   Footer-icon {
     top : 30%;
   }
+
   /*.fa-twitter {
     color : #3498db;
   }
@@ -746,6 +748,7 @@ i.material-icons:hover {
    .fa-codepen {
     color : #161616;
   }*/
+
 }
 
 
