@@ -9,10 +9,6 @@ $(window).load(function() {
   });
 });
 
-$('.dropdown-menu a').click( function () {
-  var text = $(this).text();
-  document.getElementById("newHeader").innerHTML = "Search results: " + text;
-});
 
 // When the user scrolls down 70px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -46,12 +42,3 @@ $('.multi-item-carousel .item').each(function(){
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });
-
-<<<<<<< HEAD
-//Search button
-$('.search-button').click(function(){
-  $(this).parent().toggleClass('open');
-});
-=======
-
->>>>>>> 36ff8e37df4e8c6abfffa010e740eb73c760b5da
