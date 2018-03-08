@@ -31,7 +31,7 @@ class Price(models.Model):
     """
     Model representing an event price (e.g. $0, $5.5).
     """
-    name = models.FloatField(required=True, initial='0', help_text="Enter your event price (e.g. 0, 5.5, 10).")
+    name = models.FloatField(initial='0', help_text="Enter your event price (e.g. 0, 5.5, 10).")
 
     def __str__(self):
         """
