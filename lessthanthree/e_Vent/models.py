@@ -23,7 +23,7 @@ class Tag(models.Model):
     """
     #An event can have many tags (Many-to-Many relationship)
     #An event MUST have at least one tag 
-    #Event tag must not exceed 30 characters (we don't want people 
+    #Event tag must not exceed 30 characters (we don't want people to put a lengthy tag)
     name = models.CharField(max_length=30, blank=False, help_text="Enter your event tag (e.g. cultural, sport).")
 
     def __str__(self):
@@ -34,11 +34,11 @@ class Tag(models.Model):
 
 class Price(models.Model):
     """
-    Model representing an event price (e.g. $0, $5.5).
+    Model representing an event price price - count by USD$
     """
     #For now we do counting integers
     #An event must have at least 0 $ (Free)
-    name = models.PositiveIntegerField(default=0, help_text="Enter your event price (e.g. 0, 5.5, 10).")
+    name = models.PositiveIntegerField(default=0, help_text="Enter your event price (e.g. 0, 5, 10).")
 
     def __str__(self):
         """
@@ -48,7 +48,7 @@ class Price(models.Model):
 
 class Popularity(models.Model):
     """
-    Model representing an event popularity
+    Model representing an event popularity - count by number of people 
     """
     #For now we do counting integers
     #An event must have at least 0 save
@@ -66,13 +66,14 @@ class Event(models.Model):
     """
     title = models.CharField(max_length=100)
 
-    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
     # Foreign Key used because events can only have one user, but users can have multiple events
     # Users as a string rather than object because it hasn't been declared yet in the file.
+    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
 
+    # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
-    # ManyToManyField used because a tag can contain many events. Events can cover many tags.
 
+    # A location can result in many events (Many-to-One)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
 
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the event")
@@ -80,12 +81,12 @@ class Event(models.Model):
     start_time = models.DateTimeField(auto_now_add=True, help_text="Enter the starting date and time of your event");
     end_time = models.DateTimeField(auto_now_add=True, help_text="Enter the ending date and time of your event");
 
-    # An event onely have one price
+    # An event only have one price
     price = models.OneToOneField(Price, on_delete=models.CASCADE, parent_link=False)
 
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
 
-    # An event onely have one popularity count
+    # An event only have one popularity count
     popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
 
     def __str__(self):
