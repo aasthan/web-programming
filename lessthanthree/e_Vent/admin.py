@@ -3,7 +3,9 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import User, Event, Location, Price, Tag, Popularity
-
+'''
+Just leave these here, in case we need them later on
+'''
 # admin.site.register(User)
 # admin.site.register(Event)
 # admin.site.register(Location)
@@ -24,6 +26,7 @@ class EventAdmin(admin.ModelAdmin):
 class PopularityAdmin(admin.ModelAdmin):
     pass
 
+#TODO - Aasthan
 # Register the Admin classes for User using the decorator
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
