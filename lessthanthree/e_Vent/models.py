@@ -78,8 +78,8 @@ class Event(models.Model):
 
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the event")
 
-    start_time = models.DateTimeField(auto_now_add=True, help_text="Enter the starting date and time of your event");
-    end_time = models.DateTimeField(auto_now_add=True, help_text="Enter the ending date and time of your event");
+    start_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the starting date and time of your event");
+    end_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
 
     # An event only have one price
     price = models.OneToOneField(Price, on_delete=models.CASCADE, parent_link=False)
