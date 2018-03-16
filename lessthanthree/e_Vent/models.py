@@ -39,7 +39,6 @@ class Price(models.Model):
         """
         return self.name
 
-#TODO 1: needs to modify!
 class Popularity(models.Model):
     """
     Model representing an event popularity
@@ -74,11 +73,9 @@ class Event(models.Model):
 
     price = models.ForeignKey(Price, on_delete=models.SET_NULL, null=True)
 
-    #TODO 2: Needs to modify
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
-    #attendees = models.ManyToManyField('User')
 
-    #TODO 3: Needs to modify to be PositiveIntegerField with the value is the number of attendees
+    #TODO 1: Needs to modify to be PositiveIntegerField with the value is the number of attendees (?)
     popularity = models.ForeignKey(Popularity, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
@@ -107,7 +104,6 @@ class User(models.Model):
     """
     name = models.CharField(max_length=100)
 
-    #TODO 4: Needs to modify
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
 
     contact = models.CharField(max_length=100, help_text="Enter your email address or phone number.")
