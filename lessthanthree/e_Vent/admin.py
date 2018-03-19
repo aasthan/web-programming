@@ -31,12 +31,13 @@ class PopularityAdmin(admin.ModelAdmin):
 # Register the Admin classes for User using the decorator
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'contact', 'bio')
+    list_filter = ('name', 'contact')
 
 # Register the Admin classes for Location using the decorator
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
-    pass
+	pass
 
 # Register the Admin classes for Price using the decorator
 @admin.register(Price)
