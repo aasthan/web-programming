@@ -1,13 +1,15 @@
 from django.db import models
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 
-# Create your models here.
+### Create your models here.
 
 class Location(models.Model):
     """
     Model representing an event location (e.g. Umass, Mount Holyoke College).
     """
-    name = models.CharField(max_length=50, help_text="Enter your event location (e.g. Umass, Mount Holyoke College).")
+    #An event MUST have a location
+    #An event have only ONE location
+    name = models.CharField(max_length=500, blank=False, help_text="Enter your event location (e.g. Umass, Mount Holyoke College).")
 
     def __str__(self):
         """
@@ -19,7 +21,10 @@ class Tag(models.Model):
     """
     Model representing an event tag (e.g. cultural, sport).
     """
-    name = models.CharField(max_length=20, help_text="Enter your event tag (e.g. cultural, sport).")
+    #An event can have many tags (Many-to-Many relationship)
+    #An event MUST have at least one tag 
+    #Event tag must not exceed 30 characters (we don't want people to put a lengthy tag)
+    name = models.CharField(max_length=30, blank=False, help_text="Enter your event tag (e.g. cultural, sport).")
 
     def __str__(self):
         """
@@ -29,28 +34,31 @@ class Tag(models.Model):
 
 class Price(models.Model):
     """
-    Model representing an event price (e.g. $0, $5.5).
+    Model representing an event price price - count by USD$
     """
-    name = models.FloatField(help_text="Enter your event price (e.g. 0, 5.5, 10).")
+    #For now we do counting integers
+    #An event must have at least 0 $ (Free)
+    name = models.PositiveIntegerField(default=0, help_text="Enter your event price (e.g. 0, 5, 10).")
 
     def __str__(self):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return self.name
+        return str(self.name)
 
-#TODO 1: needs to modify!
 class Popularity(models.Model):
     """
-    Model representing an event popularity
+    Model representing an event popularity - count by number of people 
     """
-    name = models.PositiveIntegerField(help_text="Popularity of the event")
+    #For now we do counting integers
+    #An event must have at least 0 save
+    name = models.PositiveIntegerField(default=0, help_text="Popularity of the event")
 
     def __str__(self):
         """
         String for representing the Model object (in Admin site etc.)
         """
-        return self.name
+        return str(self.name)
 
 class Event(models.Model):
     """
@@ -58,28 +66,28 @@ class Event(models.Model):
     """
     title = models.CharField(max_length=100)
 
-    user = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
     # Foreign Key used because events can only have one user, but users can have multiple events
     # Users as a string rather than object because it hasn't been declared yet in the file.
+    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
 
+    # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
-    # ManyToManyField used because a tag can contain many events. Events can cover many tags.
 
-    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    # A location can result in many events (Many-to-One)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
 
     description = models.TextField(max_length=1000, help_text="Enter a brief description of the event")
 
-    start_time = models.DateTimeField(auto_now_add=True, help_text="Enter the starting date and time of your event");
-    end_time = models.DateTimeField(auto_now_add=True, help_text="Enter the ending date and time of your event");
+    start_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the starting date and time of your event");
+    end_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
 
-    price = models.ForeignKey(Price, on_delete=models.SET_NULL, null=True)
+    # An event only have one price
+    price = models.OneToOneField(Price, on_delete=models.CASCADE, parent_link=False)
 
-    #TODO 2: Needs to modify
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
-    #attendees = models.ManyToManyField('User')
 
-    #TODO 3: Needs to modify to be PositiveIntegerField with the value is the number of attendees
-    popularity = models.ForeignKey(Popularity, on_delete=models.SET_NULL, null=True)
+    # An event only have one popularity count
+    popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
 
     def __str__(self):
         """
@@ -107,7 +115,6 @@ class User(models.Model):
     """
     name = models.CharField(max_length=100)
 
-    #TODO 4: Needs to modify
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
 
     contact = models.CharField(max_length=100, help_text="Enter your email address or phone number.")
