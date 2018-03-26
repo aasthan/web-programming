@@ -22,7 +22,7 @@ class Tag(models.Model):
     Model representing an event tag (e.g. cultural, sport).
     """
     #An event can have many tags (Many-to-Many relationship)
-    #An event MUST have at least one tag 
+    #An event MUST have at least one tag
     #Event tag must not exceed 30 characters (we don't want people to put a lengthy tag)
     name = models.CharField(max_length=30, blank=False, help_text="Enter your event tag (e.g. cultural, sport).")
 
@@ -48,7 +48,7 @@ class Price(models.Model):
 
 class Popularity(models.Model):
     """
-    Model representing an event popularity - count by number of people 
+    Model representing an event popularity - count by number of people
     """
     #For now we do counting integers
     #An event must have at least 0 save
@@ -82,12 +82,13 @@ class Event(models.Model):
     end_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
 
     # An event only have one price
-    price = models.OneToOneField(Price, on_delete=models.CASCADE, parent_link=False)
+    price = models.ForeignKey(Price, on_delete=models.CASCADE, parent_link=False)
 
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
 
     # An event only have one popularity count
     popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
+    
 
     def __str__(self):
         """
