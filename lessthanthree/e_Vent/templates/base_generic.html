@@ -13,7 +13,6 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <link rel="stylesheet prefetch" href="css/__codepen_io_andytran_pen.css">
 
   <link href="http://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet" type="text/css">
 
@@ -22,6 +21,7 @@
   <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <link rel="stylesheet" href="{% static 'css/__codepen_io_andytran_pen.css' %}">
 
 </head>
 
@@ -87,20 +87,6 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-    <!--  <div class="container-fluid">
-
-    <div class="row">
-    <div class="col-sm-2">
-    {% block nav %}
-    <ul class="nav">
-    <li><a href="{% url 'index' %}">Home</a></li>
-    <li><a href="{% url 'browseEvent' %}">Browse Events</a></li>
-    <li><a href="{% url 'eventForm' %}">Create an Event</a></li>
-    <li><a href="{% url 'Profile' %}">Profile</a></li>
-    <li><a href="{% url 'LogIn' %}">Login</a></li>
-  </ul>
-  {% endblock %}
-</div> -->
 <div class="row">
   {% block content %}{% endblock %}
 </div>
@@ -131,11 +117,12 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery.min.js"></script>
+{% load static %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <!-- App code -->
-<script src="js/app.js"></script>
+<script src="{% static 'js/app.js' %}"></script>
 </div>
 </body>
 </html>

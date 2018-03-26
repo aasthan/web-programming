@@ -1,3 +1,48 @@
 {% extends "base_generic.html" %}
 
 {% block title %}<title>Homepage</title>{% endblock %}
+
+{% block content %}
+  {% if event_list %}
+  <!-- First carousel -->
+  <h1 class="headline" id="latest">Happening Now</h1>
+  <div class="col-md-12">
+    <div class="carousel slide multi-item-carousel" id="theCarousel">
+      <div class="carousel-inner">
+        <!-- First event -->
+        {% for event in event_list %}
+          <div class="item{% if forloop.first %} active{% endif %}">
+            <a href="https://www.facebook.com/events/514041098956667/">
+              <div class="col-lg-4 col-sm-6">
+                <div class="post-module">
+                  <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t31.0-8/23120364_1996299267259704_8817948750343998819_o.jpg?oh=2db8b094dd3bc36dd7509ad516591c86&oe=5B1F226A" class="img-responsive">
+
+                  <!-- Thumbnail-->
+                  <div class="thumbnail">
+                    <div class="date">
+                      <div class="day">{{ event.start_time }}</div>
+                      <div class="month">{{ event.end_time }}</div>
+                    </div>
+                  </div>
+                  <!-- Post Content-->
+                  <div class="post-content">
+                    <div class="category">{{ event.price }}</div>
+                    <h1 class="title">{{ event.title }}</h1>
+                    <h2 class="sub_title">{{ event.tag }}</h2>
+                    <p class="description">{{ event.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {%endfor%}
+        </div>
+        <a class="left carousel-control" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+
+  {% else %}
+    <p>There are no events.</p>
+  {% endif %}
+{% endblock %}

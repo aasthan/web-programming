@@ -6,3 +6,4 @@ from .models import Location, Tag, Price, Popularity, Event, User
 
 class IndexView(generic.ListView):
     model = Event
+    template_name = 'index.html'
