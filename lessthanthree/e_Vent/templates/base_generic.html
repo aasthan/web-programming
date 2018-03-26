@@ -88,6 +88,20 @@
       </div><!-- /.container-fluid -->
     </nav>
 
+ <!--  <div class="container-fluid">
+
+    <div class="row">
+    <div class="col-sm-2">
+    {% block nav %}
+    <ul class="nav">
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'browseEvent' %}">Browse Events</a></li>
+    <li><a href="{% url 'eventForm' %}">Create an Event</a></li>
+    <li><a href="{% url 'Profile' %}">Profile</a></li>
+    <li><a href="{% url 'LogIn' %}">Login</a></li>
+  </ul>
+  {% endblock %}
+</div> -->
 
 <div class="row">
   {% block content %}{% endblock %}
