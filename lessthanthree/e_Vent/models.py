@@ -88,7 +88,7 @@ class Event(models.Model):
 
     # An event only have one popularity count
     popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
-    
+
 
     def __str__(self):
         """
@@ -107,6 +107,20 @@ class Event(models.Model):
         Creates a string for the Tag. This is required to display tags in Admin.
         """
         return ', '.join([ tag.name for tag in self.tag.all()[:3] ])
+
+    def display_month(self):
+        """
+        Display month only (abbr)
+        """
+        return self.start_time.strftime('%b')
+
+    def display_day(self):
+        """
+        Display day only
+        """
+        return self.start_time.strftime('%d')
+
+
 
     display_tag.short_description = 'Tag'
 
