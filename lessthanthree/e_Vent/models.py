@@ -84,7 +84,7 @@ class Event(models.Model):
     # An event only have one price
     price = models.ForeignKey(Price, on_delete=models.CASCADE, parent_link=False)
 
-    picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
+    picture = models.ImageField(upload_to='imgs/', default='imgs/None/no-img.jpg')
 
     # An event only have one popularity count
     popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
@@ -120,7 +120,8 @@ class Event(models.Model):
         """
         return self.start_time.strftime('%d')
 
-
+    class Meta:
+        ordering = ["start_time"]
 
     display_tag.short_description = 'Tag'
 
