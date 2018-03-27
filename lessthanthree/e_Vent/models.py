@@ -92,7 +92,6 @@ class Event(models.Model):
     # An event only have one popularity count
     popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
 
-
     def __str__(self):
         """
         String for representing the Model object.
