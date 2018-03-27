@@ -90,7 +90,7 @@ class Event(models.Model):
     picture = models.ImageField(upload_to='imgs/', default='imgs/None/no-img.jpg')
 
     # An event only have one popularity count
-    popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
+    popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
 
 
     def __str__(self):
