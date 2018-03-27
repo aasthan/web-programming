@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'e_Vent.apps.EVentConfig'
+    'e_Vent.apps.EVentConfig',
+    'djmoney',
 ]
 
 MIDDLEWARE = [

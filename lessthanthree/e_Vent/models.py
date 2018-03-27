@@ -1,4 +1,5 @@
 from django.db import models
+from djmoney.models.fields import MoneyField
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 
 ### Create your models here.
@@ -38,7 +39,9 @@ class Price(models.Model):
     """
     #For now we do counting integers
     #An event must have at least 0 $ (Free)
-    name = models.PositiveIntegerField(default=0, help_text="Enter your event price (e.g. 0, 5, 10).")
+    name = MoneyField(decimal_places=2, default=0, default_currency='USD', max_digits=11,)
+
+    #name = models.PositiveIntegerField(default=0, help_text="Enter your event price (e.g. 0, 5, 10).")
 
     def __str__(self):
         """
