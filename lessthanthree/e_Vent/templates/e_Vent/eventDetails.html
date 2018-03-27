@@ -2,7 +2,45 @@
 
 {% block title %}<title>Event Details</title>{% endblock %}
 
+
+
 {% block content %}
 
-<!-- copy code in here -->
+{% load static %}
+<!-- Event detail css -->
+<link rel="stylesheet" href="{% static 'css/event-details.css' %}">
+
+<!--Main feed-->
+<div class="container">
+
+	<!-- Sort by latest date -->
+	<h1>Event Details</h1>
+	<div class="row">
+		<div class="col-lg-6 spacing">
+			<img src="{{ event.picture.url }}" id="event-img">
+		</div>
+
+		<div class="col-lg-6 spacing">
+			<div class="details-info">
+				<span class="title"> Name: </span> <span> {{ event.title  }}</span>
+				<hr class="line">
+				<span class="title">Date: </span> <span> {{ event.start_time }}</span>
+				<hr class="line">
+				<span class="title">Price:</span> <span>{{ event.price }}</span>
+				<hr class="line">
+				<span class="title">Description: </span> <span>{{ event.description }}</span>
+				<hr class="line">
+				<span class="title">Location: </span><span>{{ event.location }}</span>
+				<hr class="line">
+				<span class="title">Link to website: </span> <span><a href ="{{ event.location }}"> {{ event.location }} </a></span>
+				<hr class="line">
+				<span class="title">Tags:</span> <span>{{ event.tag }}</span>
+				<hr class="line">
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
 {% endblock %}
