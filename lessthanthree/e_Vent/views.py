@@ -7,3 +7,8 @@ from django.views import generic
 class IndexView(generic.ListView):
     model = Event
     template_name = 'index.html'
+
+class EventDetailView(generic.ListView):
+    model = Event
+    template_name = "e_Vent/eventDetails.html"
+
