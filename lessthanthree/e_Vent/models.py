@@ -102,7 +102,7 @@ class Event(models.Model):
         """
         Returns the url to access a detail description for this event.
         """
-        return reverse('event-detail', args=[str(self.id)])
+        return reverse('event-details', args=[str(self.id)])
 
     def display_tag(self):
         """
