@@ -16,6 +16,6 @@ class EventDetailView(generic.DetailView):
 	def get_context_data(self, **kwargs):
 		# Call the base implementation first to get a context
 		context = super().get_context_data(**kwargs)
-		# Add in a QuerySet of all the books
+		# Add in a QuerySet of all the events
 		context['event_list'] = Event.objects.all()
 		return context
