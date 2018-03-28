@@ -55,7 +55,7 @@ class Popularity(models.Model):
     """
     #For now we do counting integers
     #An event must have at least 0 save
-    name = models.PositiveIntegerField(default=0, help_text="Popularity of the event")
+    name = models.ForeignKey('self', default=0, on_delete=models.CASCADE, help_text="Popularity of the event")
 
     def __str__(self):
         """
@@ -90,8 +90,7 @@ class Event(models.Model):
     picture = models.ImageField(upload_to='imgs/', default='imgs/None/no-img.jpg')
 
     # An event only have one popularity count
-    popularity = models.OneToOneField(Popularity, on_delete=models.CASCADE, parent_link=False)
-
+    popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
 
     def __str__(self):
         """
