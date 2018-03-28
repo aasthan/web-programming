@@ -33,3 +33,9 @@ class EventDetailView(generic.DetailView):
 		# Add in a QuerySet of all the events
 		context['event_list'] = Event.objects.all()
 		return context
+
+class EventSearchView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/search.html'
+	context_object_name = 'event_list'
+	#queryset = Event.objects.filter(title__icontains="UMass")
