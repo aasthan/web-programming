@@ -7,26 +7,23 @@
 	<ul>
 		<table>
 			<tr style="font-size: 2.5em">
-				<th style="width:30%"> Event Name </th>
-				<td style="width:30%"> User </th>
-				<td style="width:30%"> Location </th>
+				<td style="width:30%"> Event Name </td>
+				<td style="width:30%"> User </td>
+				<td style="width:30%"> Location </td>
 			</tr>
-			
+
 			<li>
 			{% for event in event_list %}
 				<tr>
-					<th style="width:30% text-align: left; font-size: 1.2em"> <a> {{ event.title }}</a></th>
-					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.user }} </th>
-					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.location }} </th>
+					<td style="width:30% text-align: left; font-size: 1.2em"> <a> {{ event.title }}</a></td>
+					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.user }} </td>
+					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.location }} </td>
 				</tr>
 			{% endfor %}
 			</li>
 		</table>
 	</ul>
 	{% else %}
-		<p> There are no events in the library. </p>
+		<p> There are no such events :(. </p>
 	{% endif %}
 {% endblock %}
-
-
-

@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from .models import Location, Tag, Price, Popularity, Event, User
 from django.views import generic
+import operator
+from django.db.models import Q
+from functools import reduce
 
 def indexView(request):
 	"""
@@ -35,7 +38,12 @@ class EventDetailView(generic.DetailView):
 		return context
 
 class EventSearchView(generic.ListView):
-	model = Event
-	template_name = 'e_Vent/search.html'
-	context_object_name = 'event_list'
-	#queryset = Event.objects.filter(title__icontains="UMass")
+    model = Event
+    template_name = 'e_Vent/search.html'
+    def get_queryset(self):
+        result = super(EventSearchView, self).get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            query_list = query.split()
+            result = result.filter(reduce(operator.and_,(Q(title__icontains=q) for q in query_list)))
+        return result
