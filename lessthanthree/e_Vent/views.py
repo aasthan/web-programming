@@ -64,6 +64,16 @@ def filterEventByLocationView(request):
 		context={'locationAmherst':locationAmherst, 'locationUMass': locationUMass, 'locationMtHolyoke': locationMtHolyoke, 'locationHampshire': locationHampshire, 'locationSmith': locationSmith},
 		)
 
+def filterEventByCategoryView(request):
+	tagCultural = Event.objects.filter(tag__name__icontains = "cultural")
+	tagSport = Event.objects.filter(tag__name__icontains = "sport")
+
+	return render(
+		request,
+		'e_Vent/filterEventByCategory.html',
+		context={'tagCultural':tagCultural, 'tagSport': tagSport},
+		)
+
 
 from django.core import serializers
 

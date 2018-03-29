@@ -12,4 +12,5 @@ urlpatterns = [
     path('signup/',views.SignupView.as_view(), name = 'signup'),
     path('filterEventByPrice/',views.filterEventByPriceView, name='filter-event-by-price'),
     path('filterEventByLocation/',views.filterEventByLocationView, name='filter-event-by-location'),
+    path('filterEventByCategory/',views.filterEventByCategoryView, name='filter-event-by-category'),
 ]
