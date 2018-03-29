@@ -30,30 +30,50 @@
 				<hr class="line">
 				<span class="title">Description: </span> <span>{{ event.description }}</span>
 				<hr class="line">
-				<span class="title">Location: </span><span>{{ event.location }}</span>
+				<span class="title">Location: </span><span id = "loc">{{ event.location }}</span>
 				<hr class="line">
-				<!-- <span class="title">Link to website: </span> <span><a href ="{{ event.location }}"> {{ event.location }} </a></span>
-				<hr class="line"> -->
 				<span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
 				<hr class="line">
 			</div>
 		</div>
 	</div>
 
-<!-- Save button -->
-    <div class="row">
-      <div class="col-lg-6">
-        <input type="submit" class="btn btn-info" id="btn-save" value="Save Event"/>
-      </div>
+  <!-- Save button -->
+  <div class="row">
+    <div class="col-lg-6">
+      <input type="submit" class="btn btn-info" id="btn-save" value="Save Event"/>
     </div>
+  </div>
 
-    <!-- Google Map -->
-    <div class="row">
-      <h1>Event Map</h1>
-      <div class="col-lg-12">
-        <div id="map"></div>
-      </div>
-    </div>
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box" value = "{{ event.location }} " autocomplete="on" disabled="true">
+
+  <div id="map"></div>
+  <script>
+    function initAutocomplete() {
+      var canvas = document.getElementById("map");
+      var geocoder = new google.maps.Geocoder();
+      var address = document.getElementById('pac-input').value;
+      var latitude;
+      var longitude;
+      var loc;
+
+      geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          console.log(results[0]);
+          latitude = results[0].geometry.location.lat();
+          longitude = results[0].geometry.location.lng();
+
+          loc = results[0].geometry.location;
+          map.setCenter(loc);
+        }
+      });
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 17,
+        mapTypeId: 'roadmap'
+      });
+    }
+  </script>
 
   <!-- Carousel -->
   <h1 class="headline" id="latest">Related Events</h1>
@@ -61,44 +81,43 @@
     <div class="carousel slide multi-item-carousel" id="theCarousel">
       <div class="carousel-inner">
         {% for event in event_list %}
-          <div class="item{% if forloop.first %} active{% endif %}">
-            <a href="https://www.facebook.com/events/514041098956667/">
-              <div class="col-lg-4 col-sm-6">
-                <div class="post-module">
-                  <img src="{{ event.picture.url }}" class="img-responsive">
+        <div class="item{% if forloop.first %} active{% endif %}">
+          <a href="https://www.facebook.com/events/514041098956667/">
+            <div class="col-lg-4 col-sm-6">
+              <div class="post-module">
+                <img src="{{ event.picture.url }}" class="img-responsive">
 
-                  <!-- Thumbnail-->
-                  <div class="thumbnail">
-                    <div class="date">
-                      <div class="month">{{ event.display_month }}</div>
-                      <div class="day">{{ event.display_day }}</div>
-                    </div>
-                  </div>
-                  <!-- Post Content-->
-                  <div class="post-content">
-                    <div class="category">{{ event.price }}</div>
-                    <h1 class="title">{{ event.title }}</h1>
-                    <h2 class="sub_title">{{ event.display_tag }}</h2>
-                    <p class="description">{{ event.description }}</p>
+                <!-- Thumbnail-->
+                <div class="thumbnail">
+                  <div class="date">
+                    <div class="month">{{ event.display_month }}</div>
+                    <div class="day">{{ event.display_day }}</div>
                   </div>
                 </div>
+                <!-- Post Content-->
+                <div class="post-content">
+                  <div class="category">{{ event.price }}</div>
+                  <h1 class="title">{{ event.title }}</h1>
+                  <h2 class="sub_title">{{ event.display_tag }}</h2>
+                  <p class="description">{{ event.description }}</p>
+                </div>
               </div>
-            </a>
-          </div>
-        {%endfor%}
+            </div>
+          </a>
         </div>
-        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        {%endfor%}
       </div>
+      <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
     </div>
-
-
+  </div>
 
 
 </div>
 <!-- Load static specifically for event Details -->
 {% load static %}
 <script src="{% static 'js/mapApp.js' %}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s  &callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTfZTLi0kVszSooq2pis--5unlnmD5m2s&libraries=places&callback=initAutocomplete"
+async defer></script>
 
 {% endblock %}

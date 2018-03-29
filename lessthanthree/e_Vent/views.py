@@ -8,6 +8,8 @@ class IndexView(generic.ListView):
     model = Event
     template_name = 'index.html'
 
+from django.core import serializers
+
 class EventDetailView(generic.DetailView):
 	model = Event
 	template_name = "e_Vent/eventDetails.html"
@@ -19,3 +21,9 @@ class EventDetailView(generic.DetailView):
 		# Add in a QuerySet of all the books
 		context['event_list'] = Event.objects.all()
 		return context
+
+	def get_loc(request):
+		query_set = Event.objects.values('location')
+		list(query_set)
+		str =  str(query_set)
+

@@ -121,6 +121,9 @@ class Event(models.Model):
         Display day only
         """
         return self.start_time.strftime('%d')
+        
+    def get_loc(self):
+        return self.location
 
     class Meta:
         ordering = ["start_time"]
