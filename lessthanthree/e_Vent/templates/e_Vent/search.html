@@ -3,8 +3,8 @@
 {% block content %}
 	<h1> Search Results </h1>
 
-	{% if allEvents %}
-      {% for event in allEvents %}
+	{% if event_list %}
+      {% for event in event_list %}
       <a href="{{event.get_absolute_url}}">
               <div class="col-lg-4 col-sm-6">
                 <div class="post-module">
