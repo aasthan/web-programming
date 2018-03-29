@@ -63,3 +63,7 @@ class YourEventsView(generic.ListView):
 
 def eventForm(request):
     return render(request, 'e_vent/eventForm.html')
+
+class EventFormView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/form.html'

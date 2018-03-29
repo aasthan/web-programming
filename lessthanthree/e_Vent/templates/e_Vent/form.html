@@ -1,0 +1,240 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<h1> Let's Add an Event! </h1>
+
+	<style>
+		.req:after{
+    		content: "*";
+    		color: red;
+		}
+
+		.req{
+			font-size: 1.25em;
+		}
+
+		.fillins{
+		    max-width: 470px;
+		    font-size: 1.2em;
+		}
+
+		.checkbox-inline{
+			float: left;
+		    display: inline-block;
+		    padding-right: 5px;
+		    background-color: #f0eee2;
+		}
+
+		.radio-inline{
+			float: left;
+		    display: inline-block;
+		    padding-right: 5px;
+		    background-color: #f0eee2;
+		}
+
+		input[type=text], input[type=url], select, textarea{
+		    width: 100%;
+		    padding: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		    resize: vertical;
+		    align-items: left;
+		}
+
+		.row {
+		    font-size: 14px;
+		    vertical-align:super;
+		}
+
+
+		label {
+		    padding: 12px 12px 12px 0;
+		    display: inline-block;
+		}
+
+		#price{
+		    vertical-align: top;
+		}
+
+		input[type=submit] {
+		    background-color: #00c4ff;
+		    color: white;
+		    padding: 12px 20px;
+		    border: none;
+		    cursor: pointer;
+		    float: right;
+		    margin-left: 5px;
+		    margin-right: 5px;
+		}
+
+		input[type=submit]:hover {
+		    background-color: #00c4ff;
+		}
+
+		#cancel {
+		  background-color: #ffc800;
+		}
+
+		.yellow {
+		  color: #ffc800;
+		}
+
+		.form{
+		    margin-left: 15%;
+		}
+
+		.subutton{
+		    margin-right: 50%;
+		}
+
+
+		.container {
+		    border-radius: 5px;
+		    background-color: #f2f2f2;
+		    padding: 20px;
+		}
+
+		.col-25 {
+		    float: left;
+		    width: 25%;
+		    margin-top: 3px;
+		}
+
+		.col-75 {
+		    float: left;
+		    width: 75%;
+		    margin-top: 3px;
+		}
+
+		.col-35 {
+		    float: left;
+		    width: 35%;
+		    margin-top: 3px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		    content: "";
+		    display: table;
+		    clear: both;
+		}
+
+
+	</style>
+
+	<!-- Event name -->
+           <form class="form">
+			    <div class="form-group row">
+			        <label class="req col-25" for="event-name">Name of Event</label>
+                	<input type="text" class="col-75 fillins" name="event-name" placeholder="The name for the event is..." required="true">
+                </div>
+            
+<!-- Org name -->
+			    <div class="form-group row">
+			        <label class="req col-25" for="org-name">Name of Organizer/Organization</label>
+			        <input type="text" class="fillins col-75" name="org-name" placeholder="My/Our name is..." required="true">
+			    </div>
+
+<!-- Contact email -->
+				<div class="form-group row">
+			        <label class="req col-25" for="contact-email">Contact email</label>
+			        <input type="text" class="fillins col-75" name="contact-email" placeholder="I can be reached at..." required="true">
+			    </div>
+            
+<!-- Date -->
+				<div class="form-group row">
+					<label class="req col-25" for="date">Date</label>
+					<input type="text" class="fillins col-75" placeholder="MM/DD/YYYY" required="true">
+				</div>
+            
+<!-- Start time -->
+				<div class="form-group row">
+					<label class="req col-25" for="startTime">Start Time</label>
+					<div class="col-35">
+						<input type="number" id="startTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
+						<input type="number" id="startTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
+					</div>
+                </div>
+        
+<!-- End time -->
+				<div class="form-group row">
+					<label class="req col-25" for="endTime">End Time</label>
+					<div class="col-35">
+						<input type="number" id="endTimeHour" placeholder="00" min="00" max="23" step="1" required="true"> :
+						<input type="number" id="endTimeMinute" placeholder="00" min="00" max="59" step="1" required="true">
+					</div>
+                </div>
+           
+<!--Location-->
+				<div class="form-group row">
+					<label class="req col-25">Location</label>
+					<input type="text" class="fillins col-75" name="location" placeholder="This event is going to be at..." required="true">
+				</div>
+                
+<!-- Fee -->
+				<div class="form-group row">
+					<label class="req col-25" for="eventFee">Entry Fee</label>
+					<div class="col-75">
+                        <label class="radio-inline"><input name="radio-opt" type="radio">Free</label>
+                        <label class="radio-inline">
+                            <input id="inlineradio2" name="sampleinlineradio" value="option2" type="radio">
+                            $5</label>
+                        <label class="radio-inline">
+                            <input id="inlineradio3" name="sampleinlineradio" value="option3" type="radio">
+                            $10</label>
+						<div class="radio" style="margin-top: 1px;">
+							<label><input type="radio" name="optradio"> Other Amount (Please specify)</label>
+                                $<input type="number" name="optradio" min="0">
+				        </div>
+					</div>
+				</div>
+               
+<!--Category-->
+				<div class="form-group row">
+					<label class="req col-25" for="eventFee">Categories (Select all that applies)</label>
+					<div id="fillins" class="col-75">
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Speaking Event</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Party</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Sports</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Local</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Social</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Cultural</label>
+						<label for="categories" class="checkbox-inline"><input name="cat-opt" type="checkbox">Other</label>
+						<input type="text" class="fillins col-75" name="cat-opt" placeholder="Please specify the category...">
+					</div>
+				</div>
+               
+<!-- Description-->
+				<div class="form-group row">
+					<label class="req col-25" for="description">Description</label>
+					<textarea class="fillins col-75" name="description" placeholder="Write something about my event..." style="height:200px" required="true"></textarea>
+				</div>
+               
+<!-- Link Event -->
+				<div class="form-group row">
+					<label class="col-25 req" for="fburl">Link to Facebook event</label>
+					<input type="url" class="fillins col-75" name="form-control" placeholder="Link to my event is..." required="true">
+				</div>
+               
+<!-- Upload Images -->
+				<div class="form-group row">
+					<label class="req col-25" for="image"> Upload images </label>
+					<div class="col-75">
+						<label class="custom-file">
+							<input type="file" id="image" class="custom-file-input">
+							<span class="custom-file-control"></span>
+						</label>
+					</div>
+				</div>
+
+<!--Buttons-->
+				<div class="form-group row subutton">
+					<input type="submit" class="btn btn-success" value="Submit"/>
+					<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>
+				</div>
+			 </form>      
+
+
+
+{% endblock %}
