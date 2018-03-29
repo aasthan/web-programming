@@ -78,7 +78,7 @@ class YourEventsView(generic.ListView):
 	model = Event
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
-	#queryset = Event.objects.filter(User__icontains="Tim_Richards")
+	# queryset = Event.objects.filter(User__icontains="Tim_Richards")
 
 def eventForm(request):
     return render(request, 'e_vent/eventForm.html')
@@ -86,3 +86,11 @@ def eventForm(request):
 class EventFormView(generic.ListView):
 	model = Event
 	template_name = 'e_Vent/form.html'
+
+class LoginView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/logIn.html'
+
+class SignupView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/signUp.html'

@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+
+{% block title %}<title>Profile</title>{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="info">
+    <h1>Welcome!</h1>
+  </div>
+</div>
+<div class="form">
+  <div class="image"><img src=""/></div>
+  <input type="text" placeholder="Username"/>
+  <input type="password" placeholder="Password"/>
+  <input type="text" placeholder="Email Address"/>
+  <button>Create</button>
+  <p class="message">Already Registered? <a href="{% url 'login' %}">Sign In</a></p>
+</form>
+</div>
+
+{% load static %}
+<!-- Css layout -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+{% endblock %}
