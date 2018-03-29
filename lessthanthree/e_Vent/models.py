@@ -55,7 +55,7 @@ class Popularity(models.Model):
     """
     #For now we do counting integers
     #An event must have at least 0 save
-    name = models.PositiveIntegerField(default=0, help_text="Popularity of the event")
+    name = models.IntegerField(default=0, help_text="Popularity of the event")
 
     def __str__(self):
         """
@@ -102,7 +102,7 @@ class Event(models.Model):
         """
         Returns the url to access a detail description for this event.
         """
-        return reverse('event-detail', args=[str(self.id)])
+        return reverse('event-details', args=[str(self.id)])
 
     def display_tag(self):
         """

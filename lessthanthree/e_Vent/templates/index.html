@@ -3,15 +3,15 @@
 {% block title %}<title>Homepage</title>{% endblock %}
 
 {% block content %}
-  {% if event_list %}
+  {% if events %}
   <!-- First carousel -->
   <h1 class="headline" id="latest">Happening Now</h1>
   <div class="col-md-12">
     <div class="carousel slide multi-item-carousel" id="theCarousel">
       <div class="carousel-inner">
-        {% for event in event_list %}
+        {% for event in events %}
           <div class="item{% if forloop.first %} active{% endif %}">
-            <a href="https://www.facebook.com/events/514041098956667/">
+            <a href="{{event.get_absolute_url}}">
               <div class="col-lg-4 col-sm-6">
                 <div class="post-module">
                   <img src="{{ event.picture.url }}" class="img-responsive">
@@ -45,9 +45,9 @@
     <div class="col-md-12">
       <div class="carousel slide multi-item-carousel" id="theCarousel2">
         <div class="carousel-inner">
-          {% for event in event_list %}
+          {% for event in popular_events %}
             <div class="item{% if forloop.first %} active{% endif %}">
-              <a href="https://www.facebook.com/events/514041098956667/">
+              <a href="{{event.get_absolute_url}}">
                 <div class="col-lg-4 col-sm-6">
                   <div class="post-module">
                     <img src="{{ event.picture.url }}" class="img-responsive">

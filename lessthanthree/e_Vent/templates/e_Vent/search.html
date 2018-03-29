@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+	<h1> Search Results </h1>
+
+	{% if event_list %}
+	<ul>
+		<table>
+			<tr style="font-size: 2.5em">
+				<td style="width:30%"> Event Name </td>
+				<td style="width:30%"> User </td>
+				<td style="width:30%"> Location </td>
+			</tr>
+
+			<li>
+			{% for event in event_list %}
+				<tr>
+					<td style="width:30% text-align: left; font-size: 1.2em"> <a> {{ event.title }}</a></td>
+					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.user }} </td>
+					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.location }} </td>
+				</tr>
+			{% endfor %}
+			</li>
+		</table>
+	</ul>
+	{% else %}
+		<p> There are no such events :(. </p>
+	{% endif %}
+{% endblock %}
