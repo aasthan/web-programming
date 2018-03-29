@@ -731,6 +731,9 @@ i.material-icons:hover {
   .Footer-icon {
     top : 30%;
   }
+
+
+
   /*.fa-twitter {
     color : #3498db;
   }
@@ -763,3 +766,5 @@ i.material-icons:hover {
   80% { opacity : 0; margin-left : -250%; }
   100% { opacity : 0; margin-left : -250%; }
 }
+
+

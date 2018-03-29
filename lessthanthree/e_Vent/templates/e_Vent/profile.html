@@ -8,11 +8,13 @@
 {% block content %}
 	<!-- Username + Profile Pic  -->
 	<div class="row">
-		<div class="col-lg-6 spacing">
-             <h1 class="title">{{ profile.username }}</h1>
-			<img src="{{ profile.picture.url }}" id="profile-pic">
-        </div>
+		
+            <h1> User: Tim Richards </h1>
+            <img src="https://www.cics.umass.edu/sites/default/files/styles/people_individual/public/headshots/tim.jpg?itok=hTlncY8n">
+			
+    </div>
 
+    <div class="row">
     {% if event_made %}
     <!-- First carousel for 'Your Events' -->
     <h1 class="headline" id="latest">Your Events</h1>
@@ -50,14 +52,17 @@
         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
     </div>
+    </div>
 {% endif %}
-{% if event_saved %}
+
+<div class="row">
+{% if event_made %}
 <!--Second Carousel for 'Saved Events'-->
     <h1 class="headline" id="popular">Saved Events</h1>
     <div class="col-md-12">
         <div class="carousel slide multi-item-carousel" id="theCarousel2">
         <div class="carousel-inner">
-            {% for event in event_saved %}
+            {% for event in event_made %}
             <div class="item{% if forloop.first %} active{% endif %}">
                 <a href="{{event.get_absolute_url}}">
                 <div class="col-lg-4 col-sm-6">
@@ -92,5 +97,5 @@
     {% else %}
     	<p>There are no events.</p>
     {% endif %}
-
+</div>
 {% endblock %}
