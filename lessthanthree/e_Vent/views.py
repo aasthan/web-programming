@@ -52,4 +52,4 @@ class YourEventsView(generic.ListView):
 	model = Event
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
-	queryset = Event.objects.filter(User__icontains="Tim_Richards")
+	#queryset = Event.objects.filter(User__icontains="Tim_Richards")
