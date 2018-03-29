@@ -55,7 +55,7 @@ class Popularity(models.Model):
     """
     #For now we do counting integers
     #An event must have at least 0 save
-    name = models.ForeignKey('self', default=0, on_delete=models.CASCADE, help_text="Popularity of the event")
+    name = models.IntegerField(default=0, help_text="Popularity of the event")
 
     def __str__(self):
         """
