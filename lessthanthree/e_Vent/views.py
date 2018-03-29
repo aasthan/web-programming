@@ -47,3 +47,9 @@ class EventSearchView(generic.ListView):
             query_list = query.split()
             result = result.filter(reduce(operator.and_,(Q(title__icontains=q) for q in query_list)))
         return result
+
+class YourEventsView(generic.ListView):
+	model = Event
+	template_name ='e_Vent/profile.html'
+	context_object_name = 'event_made'
+	queryset = Event.objects.filter(User__icontains="Tim_Richards")

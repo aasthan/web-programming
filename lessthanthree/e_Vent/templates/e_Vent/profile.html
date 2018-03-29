@@ -18,13 +18,13 @@
 			<img src="{{ profile.picture.url }}" id="profile-pic">
         </div>
         
-    {% if event_list %}
+    {% if event_made %}
     <!-- First carousel for 'Your Events' -->
     <h1 class="headline" id="latest">Your Events</h1>
     <div class="col-md-12">
     <div class="carousel slide multi-item-carousel" id="theCarousel">
         <div class="carousel-inner">
-        {% for event in event_list %}
+        {% for event in event_made %}
             <div class="item{% if forloop.first %} active{% endif %}">
             <a href="https://www.facebook.com/events/514041098956667/">
                 <div class="col-lg-4 col-sm-6">
@@ -55,12 +55,13 @@
         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
     </div>
+{% if event_saved %}
 <!--Second Carousel for 'Saved Events'-->
     <h1 class="headline" id="popular">Saved Events</h1>
     <div class="col-md-12">
         <div class="carousel slide multi-item-carousel" id="theCarousel2">
         <div class="carousel-inner">
-            {% for event in event_list %}
+            {% for event in event_saved %}
             <div class="item{% if forloop.first %} active{% endif %}">
                 <a href="https://www.facebook.com/events/514041098956667/">
                 <div class="col-lg-4 col-sm-6">
