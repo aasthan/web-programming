@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Browse Events</title>{% endblock %}
+
+{% block content %}
+  {% if allEvents %}
+      <!-- Sort by latest date -->
+      <h1 id="newHeader"> Search results: All</h1>
+      {% for event in allEvents %}
+      <a href="{{event.get_absolute_url}}">
+              <div class="col-lg-4 col-sm-6">
+                <div class="post-module">
+                  <img src="{{ event.picture.url }}" class="img-responsive">
+
+                  <!-- Thumbnail-->
+                  <div class="thumbnail">
+                    <div class="date">
+                      <div class="month">{{ event.display_month }}</div>
+                      <div class="day">{{ event.display_day }}</div>
+                    </div>
+                  </div>
+                  <!-- Post Content-->
+                  <div class="post-content">
+                    <div class="category">{{ event.price }}</div>
+                    <h1 class="title">{{ event.title }}</h1>
+                    <h2 class="sub_title">{{ event.display_tag }}</h2>
+                    <p class="description">{{ event.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
+        
+      {% endif %}
+{% endblock %}

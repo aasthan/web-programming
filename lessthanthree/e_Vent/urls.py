@@ -9,4 +9,5 @@ urlpatterns = [
     path('eventForm/', views.eventForm, name='event-form'),
     path('profile/',views.YourEventsView.as_view(), name='profile'),
     path('form/',views.EventFormView.as_view(),name='form'),
+    path('browseEvent/',views.browseEventsView, name='browse-Event'),
 ]

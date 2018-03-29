@@ -3,26 +3,31 @@
 {% block content %}
 	<h1> Search Results </h1>
 
-	{% if event_list %}
-	<ul>
-		<table>
-			<tr style="font-size: 2.5em">
-				<td style="width:30%"> Event Name </td>
-				<td style="width:30%"> User </td>
-				<td style="width:30%"> Location </td>
-			</tr>
+	{% if allEvents %}
+      {% for event in allEvents %}
+      <a href="{{event.get_absolute_url}}">
+              <div class="col-lg-4 col-sm-6">
+                <div class="post-module">
+                  <img src="{{ event.picture.url }}" class="img-responsive">
 
-			<li>
-			{% for event in event_list %}
-				<tr>
-					<td style="width:30% text-align: left; font-size: 1.2em"> <a> {{ event.title }}</a></td>
-					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.user }} </td>
-					<td style="width:30% text-align: left; font-size: 1.2em"> {{ event.location }} </td>
-				</tr>
-			{% endfor %}
-			</li>
-		</table>
-	</ul>
+                  <!-- Thumbnail-->
+                  <div class="thumbnail">
+                    <div class="date">
+                      <div class="month">{{ event.display_month }}</div>
+                      <div class="day">{{ event.display_day }}</div>
+                    </div>
+                  </div>
+                  <!-- Post Content-->
+                  <div class="post-content">
+                    <div class="category">{{ event.price }}</div>
+                    <h1 class="title">{{ event.title }}</h1>
+                    <h2 class="sub_title">{{ event.display_tag }}</h2>
+                    <p class="description">{{ event.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+            {% endfor %}
 	{% else %}
 		<p> There are no such events :(. </p>
 	{% endif %}

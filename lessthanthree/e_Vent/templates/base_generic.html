@@ -61,11 +61,11 @@
             <li class="dropdown">
               <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
               <ul class="dropdown-menu">
-                <li><a href="browseEvent.html">All</a></li>
+                <li><a href="{% url 'browse-Event' %}">All</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="browseEvent.html">Location</a></li>
-                <li><a href="browseEvent.html">Price</a></li>
-                <li><a href="browseEvent.html">Catergory</a></li>
+                <li><a href="{% url 'browse-Event' %}">Location</a></li>
+                <li><a href="{% url 'browse-Event' %}">Price</a></li>
+                <li><a href="{% url 'browse-Event' %}">Catergory</a></li>
               </ul>
             </li>
           </ul>
@@ -77,7 +77,7 @@
               <i class="material-icons">search</i>
             </button>
             <div id="search-box" class="collapse">
-              <form method="GET" action="search/">
+              <form method="GET" action="{% url 'search-results' %}">
               <input id="search-box-sub" name="q" type="text" class="form-control" placeholder="Search">
             </form>
             </div>

@@ -25,6 +25,25 @@ def indexView(request):
 
 		)
 
+def browseEventsView(request):
+	"""
+	View function for the home page
+	"""
+	#Generate counts of some of the main objects
+	num_events = Event.objects.all().count()
+	allEvents = Event.objects.all()
+	num_users = User.objects.all().count()
+	num_location = Location.objects.all().count()
+
+	paginate_by = 18
+
+	return render(
+		request,
+		'e_Vent/browseEvent.html',
+		context={'allEvents':allEvents,'num_events':num_events,'num_users':num_users,'num_location':num_location},
+
+		)
+
 from django.core import serializers
 
 class EventDetailView(generic.DetailView):
