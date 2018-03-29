@@ -32,7 +32,7 @@
 				<hr class="line">
 				<span class="title">Location: </span><span id = "loc">{{ event.location }}</span>
 				<hr class="line">
-        <span class="title">Link: </span><a href="{{ event.href }}">{{ event.href }}</span></a>
+        <span class="title">Link: </span><a href="{{ event.href }}">{{ event.href }}</a>
         <hr class="line">
 				<span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
 				<hr class="line">
@@ -84,7 +84,7 @@
       <div class="carousel-inner">
         {% for event in event_list %}
         <div class="item{% if forloop.first %} active{% endif %}">
-          <a href="https://www.facebook.com/events/514041098956667/">
+          <a href="{{event.get_absolute_url}}">
             <div class="col-lg-4 col-sm-6">
               <div class="post-module">
                 <img src="{{ event.picture.url }}" class="img-responsive">

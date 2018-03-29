@@ -2,22 +2,17 @@
 
 
 {% block title %}<title>Profile</title>{% endblock %}
-
-{% block content %}
 {% load static %}
 <!-- Css layout -->
-<link rel="stylesheet" href="{% static 'css/profile.css' %}">
-
-<!--Main feed-->
-<div class="container">
-
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% block content %}
 	<!-- Username + Profile Pic  -->
 	<div class="row">
 		<div class="col-lg-6 spacing">
              <h1 class="title">{{ profile.username }}</h1>
 			<img src="{{ profile.picture.url }}" id="profile-pic">
         </div>
-        
+
     {% if event_made %}
     <!-- First carousel for 'Your Events' -->
     <h1 class="headline" id="latest">Your Events</h1>
@@ -26,7 +21,7 @@
         <div class="carousel-inner">
         {% for event in event_made %}
             <div class="item{% if forloop.first %} active{% endif %}">
-            <a href="https://www.facebook.com/events/514041098956667/">
+            <a href="{{event.get_absolute_url}}">
                 <div class="col-lg-4 col-sm-6">
                 <div class="post-module">
                     <img src="{{ event.picture.url }}" class="img-responsive">
@@ -55,6 +50,7 @@
         <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
         </div>
     </div>
+{% endif %}
 {% if event_saved %}
 <!--Second Carousel for 'Saved Events'-->
     <h1 class="headline" id="popular">Saved Events</h1>
@@ -63,7 +59,7 @@
         <div class="carousel-inner">
             {% for event in event_saved %}
             <div class="item{% if forloop.first %} active{% endif %}">
-                <a href="https://www.facebook.com/events/514041098956667/">
+                <a href="{{event.get_absolute_url}}">
                 <div class="col-lg-4 col-sm-6">
                     <div class="post-module">
                     <img src="{{ event.picture.url }}" class="img-responsive">
@@ -94,7 +90,7 @@
         </div>
 
     {% else %}
-    <p>There are no events.</p>
+    	<p>There are no events.</p>
     {% endif %}
 
 {% endblock %}

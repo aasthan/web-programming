@@ -61,3 +61,5 @@ class YourEventsView(generic.ListView):
 	context_object_name = 'event_made'
 	#queryset = Event.objects.filter(User__icontains="Tim_Richards")
 
+def eventForm(request):
+    return render(request, 'e_vent/eventForm.html')
