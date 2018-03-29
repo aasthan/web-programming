@@ -86,3 +86,11 @@ def eventForm(request):
 class EventFormView(generic.ListView):
 	model = Event
 	template_name = 'e_Vent/form.html'
+
+class LoginView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/logIn.html'
+
+class SignupView(generic.ListView):
+	model = Event
+	template_name = 'e_Vent/signUp.html'
