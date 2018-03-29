@@ -76,6 +76,8 @@ class Event(models.Model):
     # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
 
+    href = models.URLField(max_length=200, default='https://www.google.com/', help_text="Input a link for this event")
+
     # A location can result in many events (Many-to-One)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
 
@@ -141,7 +143,6 @@ class User(models.Model):
     contact = models.CharField(max_length=100, help_text="Enter your email address or phone number.")
 
     bio = models.TextField(max_length=1000, help_text="Enter a brief description of you/your organization.")
-
 
     def get_absolute_url(self):
         """

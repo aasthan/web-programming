@@ -19,7 +19,7 @@ Just leave these here, in case we need them later on
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'user','location', 'start_time', 'end_time', 'price', 'popularity')
     list_filter = ('location', 'price', 'tag')
-    fields = ['title', 'user', 'location','price', 'popularity','tag','description', ('start_time', 'end_time'), 'picture']
+    fields = ['title', 'user', 'href','location','price', 'popularity','tag','description', ('start_time', 'end_time'), 'picture']
     ordering = ('start_time',)
 
 # Register the Admin classes for Popularity using the decorator
