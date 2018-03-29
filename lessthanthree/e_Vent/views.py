@@ -26,23 +26,31 @@ def indexView(request):
 		)
 
 def browseEventsView(request):
-	"""
-	View function for the home page
-	"""
-	#Generate counts of some of the main objects
-	num_events = Event.objects.all().count()
+	
 	allEvents = Event.objects.all()
-	num_users = User.objects.all().count()
-	num_location = Location.objects.all().count()
-
+	
 	paginate_by = 18
 
 	return render(
 		request,
 		'e_Vent/browseEvent.html',
-		context={'allEvents':allEvents,'num_events':num_events,'num_users':num_users,'num_location':num_location},
+		context={'allEvents':allEvents},
 
 		)
+
+def filterEventByPriceView(request):
+	allEvents = Event.objects.all()
+	freePrice = Event.objects.filter(price = 0)
+	lessThanTwenty = Event.objects.filter(price__lt = 20)
+	twentyToFifty = Event.objects.filter(price__gte = 20, price__lte = 50)
+	greaterThanFifty = Event.objects.filter(price__gte = 50)
+
+	return render(
+		request,
+		'e_Vent/filterEventByPrice.html',
+		context={'freePrice':freePrice, 'lessThanTwenty': lessThanTwenty, 'twentyToFifty': twentyToFifty, 'greaterThanFifty': greaterThanFifty},
+		)
+
 
 from django.core import serializers
 

@@ -1,0 +1,169 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Filter Events by Price</title>{% endblock %}
+
+{% block content %}
+      <!-- First carousel -->
+  
+  <h1 class="headline" id="latest">Price: Free</h1>
+  {% if freePrice %}
+  <div class="col-md-12">
+    <div class="carousel slide multi-item-carousel" id="theCarousel">
+      <div class="carousel-inner">
+        {% for event in freePrice %}
+          <div class="item{% if forloop.first %} active{% endif %}">
+            <a href="{{event.get_absolute_url}}">
+              <div class="col-lg-4 col-sm-6">
+                <div class="post-module">
+                  <img src="{{ event.picture.url }}" class="img-responsive">
+
+                  <!-- Thumbnail-->
+                  <div class="thumbnail">
+                    <div class="date">
+                      <div class="month">{{ event.display_month }}</div>
+                      <div class="day">{{ event.display_day }}</div>
+                    </div>
+                  </div>
+                  <!-- Post Content-->
+                  <div class="post-content">
+                    <div class="category">{{ event.price }}</div>
+                    <h1 class="title">{{ event.title }}</h1>
+                    <h2 class="sub_title">{{ event.display_tag }}</h2>
+                    <p class="description">{{ event.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {%endfor%}
+        </div>
+        <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+    {% else %}
+      <p>There are no events.</p>
+    {% endif %}
+
+
+    <h1 class="headline" id="popular">Price: Under $20</h1>
+    {% if lessThanTwenty %}
+    <div class="col-md-12">
+      <div class="carousel slide multi-item-carousel" id="theCarousel2">
+        <div class="carousel-inner">
+          {% for event in lessThanTwenty %}
+            <div class="item{% if forloop.first %} active{% endif %}">
+              <a href="{{event.get_absolute_url}}">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="post-module">
+                    <img src="{{ event.picture.url }}" class="img-responsive">
+
+                    <!-- Thumbnail-->
+                    <div class="thumbnail">
+                      <div class="date">
+                        <div class="month">{{ event.display_month }}</div>
+                        <div class="day">{{ event.display_day }}</div>
+                      </div>
+                    </div>
+                    <!-- Post Content-->
+                    <div class="post-content">
+                      <div class="category">{{ event.price }}</div>
+                      <h1 class="title">{{ event.title }}</h1>
+                      <h2 class="sub_title">{{ event.display_tag }}</h2>
+                      <p class="description">{{ event.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {%endfor%}
+          </div>
+          <a class="left carousel-control" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+      </div>
+      {% else %}
+      <p>There are no events.</p>
+    {% endif %}
+
+      <h1 class="headline" id="popular">Price: $20 - $50 </h1>
+      {% if twentyToFifty %}
+    <div class="col-md-12">
+      <div class="carousel slide multi-item-carousel" id="theCarousel2">
+        <div class="carousel-inner">
+          {% for event in twentyToFifty %}
+            <div class="item{% if forloop.first %} active{% endif %}">
+              <a href="{{event.get_absolute_url}}">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="post-module">
+                    <img src="{{ event.picture.url }}" class="img-responsive">
+
+                    <!-- Thumbnail-->
+                    <div class="thumbnail">
+                      <div class="date">
+                        <div class="month">{{ event.display_month }}</div>
+                        <div class="day">{{ event.display_day }}</div>
+                      </div>
+                    </div>
+                    <!-- Post Content-->
+                    <div class="post-content">
+                      <div class="category">{{ event.price }}</div>
+                      <h1 class="title">{{ event.title }}</h1>
+                      <h2 class="sub_title">{{ event.display_tag }}</h2>
+                      <p class="description">{{ event.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {%endfor%}
+          </div>
+          <a class="left carousel-control" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+      </div>
+      {% else %}
+      <p>There are no events.</p>
+    {% endif %}
+
+      <h1 class="headline" id="popular">Price: Greater than $50</h1>
+      {% if greaterThanFifty %}
+    <div class="col-md-12">
+      <div class="carousel slide multi-item-carousel" id="theCarousel2">
+        <div class="carousel-inner">
+          {% for event in greaterThanFifty %}
+            <div class="item{% if forloop.first %} active{% endif %}">
+              <a href="{{event.get_absolute_url}}">
+                <div class="col-lg-4 col-sm-6">
+                  <div class="post-module">
+                    <img src="{{ event.picture.url }}" class="img-responsive">
+
+                    <!-- Thumbnail-->
+                    <div class="thumbnail">
+                      <div class="date">
+                        <div class="month">{{ event.display_month }}</div>
+                        <div class="day">{{ event.display_day }}</div>
+                      </div>
+                    </div>
+                    <!-- Post Content-->
+                    <div class="post-content">
+                      <div class="category">{{ event.price }}</div>
+                      <h1 class="title">{{ event.title }}</h1>
+                      <h2 class="sub_title">{{ event.display_tag }}</h2>
+                      <p class="description">{{ event.description }}</p>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          {%endfor%}
+          </div>
+          <a class="left carousel-control" href="#theCarousel2" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="right carousel-control" href="#theCarousel2" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+      </div>
+      {% else %}
+      <p>There are no events.</p>
+    {% endif %}
+        
+{% endblock %}

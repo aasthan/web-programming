@@ -9,5 +9,7 @@ urlpatterns = [
     path('form/',views.EventFormView.as_view(),name='form'),
     path('browseEvent/',views.browseEventsView, name='browse-Event'),
     path('login/',views.LoginView.as_view(), name = 'login'),
-    path('signup/',views.SignupView.as_view(), name = 'signup')
+    path('signup/',views.SignupView.as_view(), name = 'signup'),
+    path('filterEventByPrice/',views.filterEventByPriceView, name='filter-event-by-price'),
+
 ]
