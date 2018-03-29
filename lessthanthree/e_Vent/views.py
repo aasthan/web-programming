@@ -51,6 +51,19 @@ def filterEventByPriceView(request):
 		context={'freePrice':freePrice, 'lessThanTwenty': lessThanTwenty, 'twentyToFifty': twentyToFifty, 'greaterThanFifty': greaterThanFifty},
 		)
 
+def filterEventByLocationView(request):
+	locationAmherst = Event.objects.filter(location__name__icontains = "amherst")
+	locationUMass = Event.objects.filter(location__name__icontains = "umass")
+	locationMtHolyoke = Event.objects.filter(location__name__icontains = "holyoke")
+	locationHampshire = Event.objects.filter(location__name__icontains = "hampshire")
+	locationSmith = Event.objects.filter(location__name__icontains = "smith")
+
+	return render(
+		request,
+		'e_Vent/filterEventByLocation.html',
+		context={'locationAmherst':locationAmherst, 'locationUMass': locationUMass, 'locationMtHolyoke': locationMtHolyoke, 'locationHampshire': locationHampshire, 'locationSmith': locationSmith},
+		)
+
 
 from django.core import serializers
 

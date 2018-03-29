@@ -11,5 +11,5 @@ urlpatterns = [
     path('login/',views.LoginView.as_view(), name = 'login'),
     path('signup/',views.SignupView.as_view(), name = 'signup'),
     path('filterEventByPrice/',views.filterEventByPriceView, name='filter-event-by-price'),
-
+    path('filterEventByLocation/',views.filterEventByLocationView, name='filter-event-by-location'),
 ]
