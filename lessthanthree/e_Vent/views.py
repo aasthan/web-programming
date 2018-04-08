@@ -105,18 +105,22 @@ class EventSearchView(generic.ListView):
             result = result.filter(reduce(operator.and_,(Q(title__icontains=q) for q in query_list)))
         return result
 
-class YourEventsView(generic.ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+class YourEventsView(LoginRequiredMixin, generic.ListView):
 	model = Event
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
-	# queryset = Event.objects.filter(User__icontains="Tim_Richards")
+	login_url = '/accounts/login/'
+	redirect_field_name = 'redirect_to'
 
-def eventForm(request):
-    return render(request, 'e_vent/eventForm.html')
-
-class EventFormView(generic.ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView
+class EventFormView(LoginRequiredMixin, generic.ListView):
 	model = Event
 	template_name = 'e_Vent/form.html'
+	login_url = '/accounts/login/'
+	redirect_field_name = 'redirect_to'
 
 class LoginView(generic.ListView):
 	model = Event
