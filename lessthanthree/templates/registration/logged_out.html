@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+
+{% block title %}<title>Profile</title>{% endblock %}
+
+
+{% block content %}
+<div class="container">
+	<div class="info">
+		<h1>It's sad to see you go!</h1>
+	</div>
+</div>
+
+<div class="form">
+	<h4>You have been logged out! </h4>  
+
+	<a href="{% url 'login'%}">Click here to login again.</a>
+</div>
+
+{% load static %}
+<!-- Css layout -->
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
