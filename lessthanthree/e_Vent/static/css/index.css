@@ -617,6 +617,10 @@ i.material-icons:hover {
   }*/
 }
 
+.navbar-text-login {
+  color: white;
+  background-color: black;
+}
 
 @keyframes translate1{
   0% { opacity : 0; margin-right : -7%; }
@@ -632,3 +636,5 @@ i.material-icons:hover {
   80% { opacity : 0; margin-left : -250%; }
   100% { opacity : 0; margin-left : -250%; }
 }
+
+
