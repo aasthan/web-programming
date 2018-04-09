@@ -108,7 +108,7 @@ class EventSearchView(generic.ListView):
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
-	model = Event
+	model = User
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
 	login_url = '/accounts/login/'
