@@ -63,6 +63,33 @@ class Popularity(models.Model):
         """
         return str(self.name)
 
+class User(models.Model):
+    """
+    Model representing a user.
+    """
+    name = models.CharField(max_length=100)
+
+    picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
+
+    contact = models.CharField(max_length=100, help_text="Enter your email address or phone number.")
+
+    bio = models.TextField(max_length=1000, help_text="Enter a brief description of you/your organization.")
+
+    event = models.ManyToManyField('Event', related_name='+');
+
+    def get_absolute_url(self):
+        """
+        Returns the url to access a particular user instance.
+        """
+        return reverse('user-detail', args=[str(self.id)])
+
+
+    def __str__(self):
+        """
+        String for representing the Model object.
+        """
+        return self.name
+ 
 class Event(models.Model):
     """
     Model representing an event
@@ -70,8 +97,7 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
 
     # Foreign Key used because events can only have one user, but users can have multiple events
-    # Users as a string rather than object because it hasn't been declared yet in the file.
-    user = models.ForeignKey('User', on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='+', null=False)
 
     # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
@@ -132,27 +158,3 @@ class Event(models.Model):
 
     display_tag.short_description = 'Tag'
 
-class User(models.Model):
-    """
-    Model representing a user.
-    """
-    name = models.CharField(max_length=100)
-
-    picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
-
-    contact = models.CharField(max_length=100, help_text="Enter your email address or phone number.")
-
-    bio = models.TextField(max_length=1000, help_text="Enter a brief description of you/your organization.")
-
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular user instance.
-        """
-        return reverse('user-detail', args=[str(self.id)])
-
-
-    def __str__(self):
-        """
-        String for representing the Model object.
-        """
-        return self.name
