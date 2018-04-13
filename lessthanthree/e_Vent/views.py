@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from .models import Location, Tag, Price, Popularity, Event, User
+from .models import Location, Tag, Price, Popularity, Event, Profile
 from django.views import generic
 import operator
 from django.db.models import Q
@@ -14,14 +14,14 @@ def indexView(request):
 	#Generate counts of some of the main objects
 	num_events = Event.objects.all().count()
 	events = Event.objects.all()
-	num_users = User.objects.all().count()
+	num_profiles = Profile.objects.all().count()
 	num_location = Location.objects.all().count()
 	popular_events = Event.objects.filter(popularity__gt = 10)
 
 	return render(
 		request,
 		'index.html',
-		context={'events':events,'num_events':num_events,'num_users':num_users,'num_location':num_location,'popular_events':popular_events},
+		context={'events':events,'num_events':num_events,'num_profiles':num_profiles,'num_location':num_location,'popular_events':popular_events},
 
 		)
 
@@ -108,7 +108,7 @@ class EventSearchView(generic.ListView):
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
-	model = User
+	model = Event
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
 	login_url = '/accounts/login/'

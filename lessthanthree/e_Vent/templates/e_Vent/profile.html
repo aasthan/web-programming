@@ -4,8 +4,10 @@
 {% block title %}<title>Profile</title>{% endblock %}
 
 {% block content %}
-<h1> Test </h1>
-<h4> Username: {{ user.get_username }} </h4>
-<h4> Date Joined: {{ user.date_joined }} </h1>
+<h1> Test USER + PROFILE CONNECTION</h1>
+<h4> Username: {{ user.get_username}} </h4>
+<h4> Profile name: {{ user.profile.name}} </h4>
+
+
 
 {% endblock %}

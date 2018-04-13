@@ -63,10 +63,17 @@ class Popularity(models.Model):
         """
         return str(self.name)
 
-class User(models.Model):
+from django.contrib.auth.models import User
+from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+class Profile(models.Model):
     """
-    Model representing a user.
+    Model representing a profile.
     """
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
+
     name = models.CharField(max_length=100)
 
     picture = models.ImageField(upload_to = 'imgs/', default = 'imgs/None/no-img.jpg')
@@ -77,27 +84,26 @@ class User(models.Model):
 
     event = models.ManyToManyField('Event', related_name='+');
 
-    def get_absolute_url(self):
-        """
-        Returns the url to access a particular user instance.
-        """
-        return reverse('user-detail', args=[str(self.id)])
-
-
     def __str__(self):
         """
         String for representing the Model object.
         """
-        return self.name
- 
+        return self.user.username
+
+    @receiver(post_save, sender=User)
+    def create_or_update_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+        instance.profile.save()
+
 class Event(models.Model):
     """
     Model representing an event
     """
     title = models.CharField(max_length=100)
 
-    # Foreign Key used because events can only have one user, but users can have multiple events
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='+', null=False)
+    # Foreign Key used because events can only have one profile, but profiles can have multiple events
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='+', null=False, default=1)
 
     # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
