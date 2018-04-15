@@ -137,7 +137,6 @@ class PostSaveAPIToggle(LoginRequiredMixin, APIView):
 		data = {"updated": updated, "saved": saved}
 		return Response(data)
 
-
 class EventSearchView(generic.ListView):
     model = Event
     template_name = 'e_Vent/search.html'
