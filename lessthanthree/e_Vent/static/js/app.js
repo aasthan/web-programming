@@ -42,3 +42,43 @@ $('.multi-item-carousel .item').each(function(){
   	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
   }
 });
+
+/** Save button **/
+$(document).ready(function(){
+  function updateText(btn, newCount, verb) {
+    btn.text(newCount + " " + verb)
+  }
+
+  $(".save-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var saveUrl = this_.attr("data-href")
+    var saveCount = parseInt(this_.attr("data-saves")) | 0
+    var addSave = saveCount + 1
+    var removeSave = saveCount
+    if(saveUrl) {
+      $.ajax({
+        url: saveUrl,
+        method: "GET",
+        data: {},
+        success: function(data){
+          console.log(data)
+          if (data.saved) {
+            updateText(this_, addSave, "Unsave");
+          } else {
+            updateText(this_, removeSave, "Save");
+          }
+        },
+        error: function(error){
+          console.log(error)
+          console.log("error")
+        }
+      })
+    }
+  })
+})
+
+$(document).ready(function(){
+  {% block jquery %}{% endblock %}
+})
+

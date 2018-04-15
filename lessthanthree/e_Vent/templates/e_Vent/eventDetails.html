@@ -8,7 +8,11 @@
 <!-- Event detail css -->
 <link rel="stylesheet" href="{% static 'css/event-details.css' %}">
 
+
+
 <!--Main feed-->
+
+
 <div class="container">
 
 	<!-- Sort by latest date -->
@@ -34,9 +38,8 @@
         <hr class="line">
 				<span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
 				<hr class="line">
-				<span class="title"></span> <span><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
-					href="{{ event.get_save_url }}">{{ event.saves.count }} Save</a></span>
-				<hr class="line">
+        <span class="title">Popularity:</span> <span>{{ event.saves.count }} </a></span>
+        <hr class="line">
 			</div>
 		</div>
 	</div>
@@ -44,7 +47,8 @@
   <!-- Save button -->
   <div class="row">
     <div class="col-lg-6">
-      <input type="submit" class="btn btn-info" id="btn-save" value="Save Event"/>
+      <span class="title"></span> <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+          href="{{ event.get_save_url }}">Save/ Unsave</a></h4>
     </div>
   </div>
 
@@ -89,9 +93,9 @@
       <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
     </div>
   </div>
-
-
 </div>
+
+
 <!-- Load static specifically for event Details -->
 {% load static %}
 <script src="{% static 'js/mapApp.js' %}"></script>

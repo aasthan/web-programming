@@ -103,9 +103,7 @@ class PostSaveToggle(LoginRequiredMixin, generic.RedirectView):
 		obj = get_object_or_404(Event, pk=pk)
 		print(pk)
 		url_ = obj.get_absolute_url()
-		#user = self.request.GET.get('profile')
 		user = self.request.user
-		print(user)
 		if user in obj.saves.all():
 			obj.saves.remove(user)
 		else:
@@ -123,7 +121,6 @@ class PostSaveAPIToggle(LoginRequiredMixin, APIView):
 	def get(self, request, pk, format=None):
 		obj = get_object_or_404(Event, pk=pk)
 		url_ = obj.get_absolute_url()
-		#user = self.request.GET.get('profile')
 		user = self.request.user
 		updated = False
 		saved = False
