@@ -28,8 +28,6 @@
 </head>
 
 <body>
-  
-
   <div class="row">
     <!-- Back to top button -->
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i id="back-to-top" class="material-icons">keyboard_arrow_up</i></button>
@@ -80,8 +78,8 @@
             </button>
             <div id="search-box" class="collapse">
               <form method="GET" action="{% url 'search' %}">
-              <input id="search-box-sub" name="q" type="text" class="form-control" placeholder="Search">
-            </form>
+                <input id="search-box-sub" name="q" type="text" class="form-control" placeholder="Search">
+              </form>
             </div>
           </form>
 
@@ -92,38 +90,38 @@
             <a href="{% url 'form' %}"><i class="material-icons">add</i></a>
             {% if user.is_authenticated %}
             <li><a class="navbar-text-login">Hi there, {{ user.get_username }}</a></li>
-            <li><a class="navbar-text-login" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>   
+            <li><a class="navbar-text-login" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
             {% else %}
-            <li><a class="navbar-text-login" href="{% url 'login'%}?next={{request.path}}">Login</a></li>   
-            {% endif %} 
+            <li><a class="navbar-text-login" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% endif %}
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-<div class="row">
-  {% block content %}{% endblock %}
-</div>
+    <div class="row">
+      {% block content %}{% endblock %}
+    </div>
 
-<!--Footer-->
-<div class="row">
-  <footer class="Footer">
-    <ul class="Footer-items">
-      <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
-        <span class="Footer-icon fa fa-twitter"></span>
+    <!--Footer-->
+    <div class="row">
+      <footer class="Footer">
+        <ul class="Footer-items">
+          <li class="Footer-item"><a target="_blank" href="https://twitter.com/" class="Footer-link">
+            <span class="Footer-icon fa fa-twitter"></span>
+          </a>
+        </li>
+        <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
+          <span class="Footer-icon fa fa-github"></span>
+        </a>
+      </li>
+      <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
+        <span class="Footer-icon fa fa-linkedin"></span>
       </a>
     </li>
-    <li class="Footer-item"><a target="_blank" href="https://github.com/aasthan/web-programming" class="Footer-link">
-      <span class="Footer-icon fa fa-github"></span>
+    <li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
+      <span class="Footer-icon fa fa-envelope"></span>
     </a>
   </li>
-  <li class="Footer-item"><a target="_blank" href="https://www.linkedin.com" class="Footer-link">
-    <span class="Footer-icon fa fa-linkedin"></span>
-  </a>
-</li>
-<li class="Footer-item"><a target="_blank" href="https://mail.google.com/" class="Footer-link">
-  <span class="Footer-icon fa fa-envelope"></span>
-</a>
-</li>
 </ul>
 </footer>
 <!--/Footer-->
@@ -136,6 +134,49 @@
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <!-- App code -->
 <script src="{% static 'js/app.js' %}"></script>
+
+<!-- Save button -->
+<script>
+$(document).ready(function(){
+  function updateText(btn, newCount, verb) {
+    btn.text(newCount + " " + verb)
+  }
+
+  $(".save-btn").click(function(e){
+    e.preventDefault()
+    var this_ = $(this)
+    var saveUrl = this_.attr("data-href")
+    var saveCount = parseInt(this_.attr("data-saves")) | 0
+    var addSave = saveCount + 1
+    var removeSave = saveCount
+    if(saveUrl) {
+      $.ajax({
+        url: saveUrl,
+        method: "GET",
+        data: {},
+        success: function(data){
+          console.log(data)
+          if (data.saved) {
+            updateText(this_, addSave, "Unsave")
+          } else {
+            updateText(this_, removeSave, "Save")
+          }
+        },
+        error: function(error){
+          console.log(error)
+          console.log("error")
+        }
+      })
+    }
+  })
+})
+</script>
+
+<script>
+$(document).ready(function(){
+  {% block jquery %}{% endblock %}
+})
+</script>
 </div>
 </body>
 </html>

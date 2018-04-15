@@ -1,6 +1,7 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
+from django.conf import settings
 
 ### Create your models here.
 
@@ -72,7 +73,7 @@ class Profile(models.Model):
     """
     Model representing a profile.
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, default=1)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 
     name = models.CharField(max_length=100)
 
@@ -103,7 +104,7 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
 
     # Foreign Key used because events can only have one profile, but profiles can have multiple events
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='+', null=False, default=1)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE, related_name='+', null=False, default=1)
 
     # A tag can result in many events (Many-to-Many)
     tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
@@ -125,6 +126,8 @@ class Event(models.Model):
 
     # An event only have one popularity count
     popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
+
+    saves = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='saves')
 
     def __str__(self):
         """
@@ -155,12 +158,18 @@ class Event(models.Model):
         Display day only
         """
         return self.start_time.strftime('%d')
-        
+
     def get_loc(self):
         return self.location
+
+    #For save button toggle
+    def get_save_url(self):
+        return reverse('save', args=[str(self.id)])
+
+    def get_api_save_url(self):
+        return reverse('api-save', args=[str(self.id)])
 
     class Meta:
         ordering = ["start_time"]
 
     display_tag.short_description = 'Tag'
-

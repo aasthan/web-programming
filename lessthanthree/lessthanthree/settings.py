@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'e_Vent.apps.EVentConfig',
     'djmoney',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

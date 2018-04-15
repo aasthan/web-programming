@@ -2,8 +2,6 @@
 
 {% block title %}<title>Event Details</title>{% endblock %}
 
-
-
 {% block content %}
 
 {% load static %}
@@ -36,6 +34,9 @@
         <hr class="line">
 				<span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
 				<hr class="line">
+				<span class="title"></span> <span><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+					href="{{ event.get_save_url }}">{{ event.saves.count }} Save</a></span>
+				<hr class="line">
 			</div>
 		</div>
 	</div>
@@ -50,7 +51,7 @@
   <input id="pac-input" class="controls" type="text" placeholder="Search Box" value = "{{ event.location }} " autocomplete="on" disabled="true">
 
   <div id="map"></div>
-  
+
 
   <!-- Carousel -->
   <h1 class="headline" id="latest">Related Events</h1>

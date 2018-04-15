@@ -17,9 +17,9 @@ Just leave these here, in case we need them later on
 # ManyToManyField fields aren’t supported in Django list_display, so don't add 'tag' in list_display
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('title', 'profile','location', 'start_time', 'end_time', 'price', 'popularity')
+    list_display = ('title', 'profile','location', 'start_time', 'end_time', 'price', 'popularity',)
     list_filter = ('location', 'price', 'tag')
-    fields = ['title', 'profile', 'href','location','price', 'popularity','tag','description', ('start_time', 'end_time'), 'picture']
+    fields = ['title', 'profile', 'saves','href','location','price', 'popularity','tag','description', ('start_time', 'end_time'), 'picture']
     ordering = ('start_time',)
 
 # Register the Admin classes for Popularity using the decorator
@@ -71,4 +71,3 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, CustomUserAdmin)
-

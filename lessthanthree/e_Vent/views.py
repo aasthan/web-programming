@@ -26,9 +26,9 @@ def indexView(request):
 		)
 
 def browseEventsView(request):
-	
+
 	allEvents = Event.objects.all()
-	
+
 	paginate_by = 18
 
 	return render(
@@ -94,6 +94,50 @@ class EventDetailView(generic.DetailView):
 		list(query_set)
 		str =  str(query_set)
 
+from django.views.generic import RedirectView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
+
+class PostSaveToggle(LoginRequiredMixin, generic.RedirectView):
+	def get_redirect_url(self, pk):
+		obj = get_object_or_404(Event, pk=pk)
+		print(pk)
+		url_ = obj.get_absolute_url()
+		#user = self.request.GET.get('profile')
+		user = self.request.user
+		print(user)
+		if user in obj.saves.all():
+			obj.saves.remove(user)
+		else:
+			obj.saves.add(user)
+		return url_
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import authentication, permissions
+from django.contrib.auth.models import User
+
+class PostSaveAPIToggle(LoginRequiredMixin, APIView):
+	authentication_classes = (authentication.SessionAuthentication,)
+	permission_classes = (permissions.IsAuthenticated,)
+	def get(self, request, pk, format=None):
+		obj = get_object_or_404(Event, pk=pk)
+		url_ = obj.get_absolute_url()
+		#user = self.request.GET.get('profile')
+		user = self.request.user
+		updated = False
+		saved = False
+		if user in obj.saves.all():
+			saved = False
+			obj.saves.remove(user)
+		else:
+			saved = True
+			obj.saves.add(user)
+		updated = True
+		data = {"updated": updated, "saved": saved}
+		return Response(data)
+
+
 class EventSearchView(generic.ListView):
     model = Event
     template_name = 'e_Vent/search.html'
@@ -105,7 +149,6 @@ class EventSearchView(generic.ListView):
             result = result.filter(reduce(operator.and_,(Q(title__icontains=q) for q in query_list)))
         return result
 
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
 	model = Event
