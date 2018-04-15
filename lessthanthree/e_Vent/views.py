@@ -172,3 +172,20 @@ class LoginView(generic.ListView):
 class SignupView(generic.ListView):
 	model = Event
 	template_name = 'e_Vent/signUp.html'
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import CreateView,UpdateView,DeleteView
+from django.urls import reverse_lazy
+from .models import Event
+
+class EventCreate(LoginRequiredMixin, CreateView):
+	model = Event
+	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+
+class EventUpdate(LoginRequiredMixin, UpdateView):
+	model = Event
+	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+
+class EventDelete(LoginRequiredMixin, DeleteView):
+	model = Event
+	success_url = reverse_lazy('index')

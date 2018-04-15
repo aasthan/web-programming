@@ -1,0 +1,67 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>Event Form</title>{% endblock %}
+
+{% block content %}
+<style>
+		.req:after{content: "*";color: red;}
+		.req{font-size: 1.25em;}
+		.fillins{max-width: 470px;font-size: 1.2em;}
+		.checkbox-inline{
+			float: left;
+		    display: inline-block;
+		    padding-right: 5px;
+		    background-color: #f0eee2;
+		}
+		.radio-inline{float: left;display:inline-block;padding-right: 5px;background-color: #f0eee2;}
+		input[type=text], input[type=url], select, textarea{
+		    width: 100%;
+		    padding: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		    resize: vertical;
+		    align-items: left;
+		}
+		.row {font-size: 14px;vertical-align:super;}
+		label {padding: 12px 12px 12px 0;display: inline-block;}
+		#price{vertical-align: top;}
+		input[type=submit] {
+		    background-color: #00c4ff;
+		    color: white;
+		    padding: 12px 20px;
+		    border: none;
+		    cursor: pointer;
+		    float: right;
+		    margin-left: 5px;
+		    margin-right: 5px;
+		}
+		input[type=submit]:hover {background-color: #00c4ff;}
+		#cancel {background-color: #ffc800;}
+		.yellow {color: #ffc800;}
+		.form{margin-left: 15%;}
+		.subutton{margin-right: 50%;}
+		.container {border-radius: 5px;background-color: #f2f2f2;padding: 20px;}
+		.col-25 {float: left;width: 25%;margin-top: 3px;}
+		.col-75 {float: left;width: 75%;margin-top: 3px;}
+		.col-35 {float: left;width: 35%;margin-top: 3px;}
+		/* Clear floats after the columns */
+		.row:after {content: "";display: table;clear: both;}
+	</style>
+
+	<h1> Let's Add an Event! </h1>
+
+	<form action="" class="form" method="post">
+	{% csrf_token %}
+		{% for field in form %}
+		<div class="form-group row">
+			<label class="req col-25">{{ field.label_tag }}</label>
+            <div class="col-75 fillins" placeholder='{{ field.help_text }}'>{{ field }}</div> <!--Need to have a look, or maybe change stuff here -->
+        </div>
+		{% endfor %}
+		<div class="form-group row subutton">
+			<input type = "submit" class="btn btn-success" value="Submit" />
+			<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>
+		</div>
+	</form>
+{% endblock %}
