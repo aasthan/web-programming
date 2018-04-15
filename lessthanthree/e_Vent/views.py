@@ -151,11 +151,16 @@ class EventSearchView(generic.ListView):
 
 from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
-	model = Event
+	model = Profile
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
 	login_url = '/accounts/login/'
 	redirect_field_name = 'redirect_to'
+
+	def get_context_data(self, **kwargs):
+		context = super(YourEventsView, self).get_context_data(**kwargs)
+		context['event'] = Profile.objects.all()
+		return context
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView

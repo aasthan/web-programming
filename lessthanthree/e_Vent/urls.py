@@ -8,6 +8,7 @@ urlpatterns = [
     path('event/<int:pk>/save/', views.PostSaveToggle.as_view(), name='save'),
     path('event/api/<int:pk>/save/', views.PostSaveAPIToggle.as_view(), name='api-save'),
     path('profile/',views.YourEventsView.as_view(), name='profile'),
+    path('profile<int:pk>/your-events',views.YourEventsView.as_view(), name='event_made'),
     path('form/',views.EventFormView.as_view(),name='form'),
     path('browseEvent/',views.browseEventsView, name='browse-Event'),
     path('login/',views.LoginView.as_view(), name = 'login'),
