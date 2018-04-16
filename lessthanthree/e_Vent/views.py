@@ -16,7 +16,7 @@ def indexView(request):
 	events = Event.objects.all()
 	num_profiles = Profile.objects.all().count()
 	num_location = Location.objects.all().count()
-	popular_events = Event.objects.filter(popularity__gt = 10)
+	popular_events = Event.objects.filter(saves__gte = 2)
 
 	return render(
 		request,
@@ -182,11 +182,11 @@ from .models import Event
 
 class EventCreate(LoginRequiredMixin, CreateView):
 	model = Event
-	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
 	model = Event
-	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventDelete(LoginRequiredMixin, DeleteView):
 	model = Event
