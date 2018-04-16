@@ -97,6 +97,7 @@ class Profile(models.Model):
             Profile.objects.create(user=instance)
         instance.profile.save()
 
+from django.db.models import Count
 class Event(models.Model):
     """
     Model representing an event
@@ -124,16 +125,20 @@ class Event(models.Model):
 
     picture = models.ImageField(verbose_name='Upload Image', upload_to='imgs/', default='imgs/None/no-img.jpg')
 
-    # An event only have one popularity count
-    popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
-
     saves = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='saves')
+
 
     def __str__(self):
         """
         String for representing the Model object.
         """
         return self.title
+
+    def get_popu(self):
+        """
+        Count popularity
+        """
+        return self.saves.count()
 
     def get_absolute_url(self):
         """
@@ -173,3 +178,5 @@ class Event(models.Model):
         ordering = ["start_time"]
 
     display_tag.short_description = 'Tag'
+
+    popularity = get_popu

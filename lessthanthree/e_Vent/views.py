@@ -16,7 +16,7 @@ def indexView(request):
 	events = Event.objects.all()
 	num_profiles = Profile.objects.all().count()
 	num_location = Location.objects.all().count()
-	popular_events = Event.objects.filter(popularity__gt = 10)
+	popular_events = Event.objects.filter(saves__gte = 2)
 
 	return render(
 		request,
@@ -103,9 +103,7 @@ class PostSaveToggle(LoginRequiredMixin, generic.RedirectView):
 		obj = get_object_or_404(Event, pk=pk)
 		print(pk)
 		url_ = obj.get_absolute_url()
-		#user = self.request.GET.get('profile')
 		user = self.request.user
-		print(user)
 		if user in obj.saves.all():
 			obj.saves.remove(user)
 		else:
@@ -123,7 +121,6 @@ class PostSaveAPIToggle(LoginRequiredMixin, APIView):
 	def get(self, request, pk, format=None):
 		obj = get_object_or_404(Event, pk=pk)
 		url_ = obj.get_absolute_url()
-		#user = self.request.GET.get('profile')
 		user = self.request.user
 		updated = False
 		saved = False
@@ -150,11 +147,16 @@ class EventSearchView(generic.ListView):
 
 from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
-	model = Event
+	model = Profile
 	template_name ='e_Vent/profile.html'
 	context_object_name = 'event_made'
 	login_url = '/accounts/login/'
 	redirect_field_name = 'redirect_to'
+
+	def get_context_data(self, **kwargs):
+		context = super(YourEventsView, self).get_context_data(**kwargs)
+		context['event'] = Profile.objects.all()
+		return context
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
@@ -179,11 +181,11 @@ from .models import Event
 
 class EventCreate(LoginRequiredMixin, CreateView):
 	model = Event
-	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
 	model = Event
-	fields = ['title', 'start_time','end_time','location','price','popularity','tag','description','href','picture']
+	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventDelete(LoginRequiredMixin, DeleteView):
 	model = Event
