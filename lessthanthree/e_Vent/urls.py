@@ -15,4 +15,9 @@ urlpatterns = [
     path('filterEventByPrice/',views.filterEventByPriceView, name='filter-event-by-price'),
     path('filterEventByLocation/',views.filterEventByLocationView, name='filter-event-by-location'),
     path('filterEventByCategory/',views.filterEventByCategoryView, name='filter-event-by-category'),
+
+    path('event/<int:pk>/update', views.EventUpdate.as_view(), name='event_update'),
+    path('event/<int:pk>/delete', views.EventDelete.as_view(), name='event_delete'),
+
+    path('event/create/', views.EventCreate.as_view(), name='event_create'),
 ]

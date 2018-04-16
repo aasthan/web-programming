@@ -87,7 +87,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <a href="{% url 'profile' %}"><i class="material-icons">face</i></a>
-            <a href="{% url 'form' %}"><i class="material-icons">add</i></a>
+            <a href="{% url 'event_create' %}"><i class="material-icons">add</i></a>
             {% if user.is_authenticated %}
             <li><a class="navbar-text-login">Hi there, {{ user.get_username }}</a></li>
             <li><a class="navbar-text-login" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>

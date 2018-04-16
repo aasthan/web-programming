@@ -101,28 +101,28 @@ class Event(models.Model):
     """
     Model representing an event
     """
-    title = models.CharField(max_length=100)
+    title = models.CharField(verbose_name='Name of Event', max_length=100, help_text="The name for the event is...")
 
-    # Foreign Key used because events can only have one profile, but profiles can have multiple events
-    profile = models.ForeignKey(User, on_delete=models.CASCADE, related_name='+', null=False, default=1)
+    # Foreign Key used because events can only have one user, but users can have multiple events
+    profile = models.ForeignKey(User,verbose_name='Organizer', on_delete=models.CASCADE, related_name='+', null=False)
 
     # A tag can result in many events (Many-to-Many)
-    tag = models.ManyToManyField(Tag, help_text="Select a tag for this book")
+    tag = models.ManyToManyField(Tag, verbose_name='Category', help_text="Please specify the category")
 
-    href = models.URLField(max_length=200, default='https://www.google.com/', help_text="Input a link for this event")
+    href = models.URLField(verbose_name='Link to the Event',max_length=200, help_text="Link to my event is...")
 
     # A location can result in many events (Many-to-One)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, null=True, help_text="This event is going to be at...")
 
-    description = models.TextField(max_length=1000, help_text="Enter a brief description of the event")
+    description = models.TextField(max_length=1000, help_text="Write something about my event...")
 
-    start_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the starting date and time of your event");
-    end_time = models.DateTimeField(auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
+    start_time = models.DateTimeField(verbose_name='Start Time', auto_now=False, auto_now_add=False, help_text="Enter the starting date and time of your event");
+    end_time = models.DateTimeField(verbose_name='End Time', auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
 
     # An event only have one price
-    price = models.ForeignKey(Price, on_delete=models.CASCADE, parent_link=False)
+    price = models.ForeignKey(Price, verbose_name='Entry Fee', on_delete=models.CASCADE, parent_link=False)
 
-    picture = models.ImageField(upload_to='imgs/', default='imgs/None/no-img.jpg')
+    picture = models.ImageField(verbose_name='Upload Image', upload_to='imgs/', default='imgs/None/no-img.jpg')
 
     # An event only have one popularity count
     popularity = models.ForeignKey(Popularity, on_delete=models.CASCADE, parent_link=False)
