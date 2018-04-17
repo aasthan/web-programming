@@ -51,7 +51,7 @@
 
 	<h1> Let's Add an Event! </h1>
 
-	<form action="" class="form" method="post">
+	<form action="" class="form" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
 	    <table>
         {{form}}
