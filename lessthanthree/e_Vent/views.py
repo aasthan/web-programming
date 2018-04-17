@@ -157,7 +157,7 @@ from django.views.generic import ListView
 class YourEventsView(LoginRequiredMixin, generic.ListView):
 	model = Event
 	template_name ='e_Vent/profile.html'
-	context_object_name = 'event_made'
+	context_object_name = 'event_all'
 	login_url = '/accounts/login/'
 	redirect_field_name = 'redirect_to'
 
@@ -166,16 +166,6 @@ class YourEventsView(LoginRequiredMixin, generic.ListView):
 		context = super().get_context_data(**kwargs)
 		# Add in a QuerySet of all the events
 		context['event_made'] = Event.objects.filter(profile=self.request.user)
-		return context
-class SavedEventsView(LoginRequiredMixin, generic.ListView):
-	model = Event
-	template_name ='e_Vent/profile.html'
-	context_object_name = 'event_made'
-	login_url = '/accounts/login/'
-	redirect_field_name = 'redirect_to'
-
-	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
 		context['event_saved'] = Event.objects.filter(saves=self.request.user)
 		return context
 
