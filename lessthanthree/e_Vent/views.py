@@ -191,19 +191,23 @@ from django.urls import reverse_lazy
 from .models import Event
 from .forms import EventForm
 
-def EventCreate(request):
-	form = EventForm(request.POST)
-	if request.method == "POST":
-		form = EventForm(request.POST)
-		if form.is_valid():
-			event = form.save(commit=False)
-			event.save()
-			return HttpResponseRedirect(event.get_absolute_url())
-	return render(request, 'e_Vent/event_form.html', {'form':form})
+#def EventCreate(request):
+#	form = EventForm(request.POST)
+#	if request.method == "POST":
+#		form = EventForm(request.POST)
+#		if form.is_valid():
+#			event = form.save(commit=False)
+#			event.save()
+#			return HttpResponseRedirect(event.get_absolute_url())
+#	return render(request, 'e_Vent/event_form.html', {'form':form})
+
+class EventCreate(LoginRequiredMixin,CreateView):
+	model = Event
+	fields = ['title','profile', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
 	model = Event
-	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
+	fields = ['title','profile', 'start_time','end_time','location','price','tag','description','href','picture']
 
 class EventDelete(LoginRequiredMixin, DeleteView):
 	model = Event
