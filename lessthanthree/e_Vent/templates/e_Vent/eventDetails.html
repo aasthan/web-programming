@@ -52,6 +52,30 @@
      </div>
    </div>
 
+     <!-- Update button -->
+   <div class="row">
+     <div class="col-lg-6">
+     {% if user.is_authenticated %}
+      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="update-btn" href="{{ request.get_full_path }}/update">Update</a></h4>
+      {% else %}
+      You don't have any permission to save this event. Please log in first!
+      {% endif %}
+
+     </div>
+   </div>
+
+    <!-- Delete button -->
+   <div class="row">
+     <div class="col-lg-6">
+     {% if user.is_authenticated %}
+      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="delete-btn" href="{{ request.get_full_path }}/delete">Delete</a></h4>
+      {% else %}
+      You don't have any permission to save this event. Please log in first!
+      {% endif %}
+
+     </div>
+   </div>
+
   <input id="pac-input" class="controls" type="text" placeholder="Search Box" value = "{{ event.location }} " autocomplete="on" disabled="true">
 
   <div id="map"></div>
