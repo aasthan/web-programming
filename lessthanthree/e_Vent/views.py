@@ -102,6 +102,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 
 class PostSaveToggle(LoginRequiredMixin, generic.RedirectView):
+	login_url = '/accounts/login/'
+	redirect_field_name = 'redirect_to'
 	def get_redirect_url(self, pk):
 		obj = get_object_or_404(Event, pk=pk)
 		print(pk)
@@ -114,11 +116,14 @@ class PostSaveToggle(LoginRequiredMixin, generic.RedirectView):
 		return url_
 
 from rest_framework.views import APIView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework.response import Response
 from rest_framework import authentication, permissions
 from django.contrib.auth.models import User
 
 class PostSaveAPIToggle(LoginRequiredMixin, APIView):
+	login_url = '/accounts/login/'
+	redirect_field_name = 'redirect_to'
 	authentication_classes = (authentication.SessionAuthentication,)
 	permission_classes = (permissions.IsAuthenticated,)
 	def get(self, request, pk, format=None):

@@ -34,9 +34,7 @@
         <hr class="line">
         <span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
         <hr class="line">
-        <span class="title"></span> <span><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
-          href="{{ event.get_save_url }}">{{ event.saves.count }} Save</a></span>
-        <hr class="line">
+        <span class="title">Popularity:</span> <span>{{ event.saves.count }} </a></span>
       </div>
     </div>
   </div>
@@ -44,9 +42,13 @@
   <!-- Save button -->
    <div class="row">
      <div class="col-lg-6">
-      <span class="title"></span> <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+     {% if user.is_authenticated %}
+      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
           href="{{ event.get_save_url }}">Save/ Unsave</a></h4>
-      
+      {% else %}
+      You don't have any permission to save this event. Please log in first!
+      {% endif %}
+
      </div>
    </div>
 
