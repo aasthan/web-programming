@@ -53,12 +53,15 @@
 
 	<form action="" class="form" method="post">
 	{% csrf_token %}
-		{% for field in form %}
+	    <table>
+        {{form}}
+        </table>
+		<!--{% for field in form %}
 		<div class="form-group row">
 			<label class="req col-25">{{ field.label_tag }}</label>
-            <div class="col-75 fillins" placeholder='{{ field.help_text }}'>{{ field }}</div> <!--Need to have a look, or maybe change stuff here -->
+            <div class="col-75 fillins" placeholder='{{ field.help_text }}'>{{ field }}</div> 
         </div>
-		{% endfor %}
+		{% endfor %}-->
 		<div class="form-group row subutton">
 			<input type = "submit" class="btn btn-success" value="Submit" />
 			<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>

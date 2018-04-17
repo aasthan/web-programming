@@ -189,10 +189,17 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 from .models import Event
+from .forms import EventForm
 
-class EventCreate(LoginRequiredMixin, CreateView):
-	model = Event
-	fields = ['title', 'start_time','end_time','location','price','tag','description','href','picture']
+def EventCreate(request):
+	form = EventForm(request.POST)
+	if request.method == "POST":
+		form = EventForm(request.POST)
+		if form.is_valid():
+			event = form.save(commit=False)
+			event.save()
+			return HttpResponseRedirect(event.get_absolute_url())
+	return render(request, 'e_Vent/event_form.html', {'form':form})
 
 class EventUpdate(LoginRequiredMixin, UpdateView):
 	model = Event

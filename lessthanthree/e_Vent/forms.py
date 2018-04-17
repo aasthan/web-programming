@@ -1,19 +1,29 @@
 from django import forms
-
+from .models import Event
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 import datetime
 
 class EventForm(forms.Form):
+	"""def __init__(self, *args, **kwargs):
+	 	#self.profile = user
+	 	super(EventForm, self).__init__(*args, **kwargs)
+	 	"""
+	class Meta:
+		model = Event
 	title = forms.CharField(label='Name of Event', help_text="The name for the event is...", max_length=100, required=True)
 	start_time = forms.DateTimeField(label="Start Time", input_formats=['%Y-%m-%d %H:%M'], help_text="YYYY-MM-DD HH:MM", required=True)
 	end_time = forms.TimeField(label="End Time", input_formats=['%Y-%m-%d %H:%M'], help_text="YYYY-MM-DD HH:MM", required=True)
 	location = forms.CharField(label="Location", help_text="This event is going to be at...", max_length=100, required=True)
-	price = forms.TypedChoiceField(label='Entry Fee', required=True)
-	tag = forms.TypedMultipleChoiceField(label='Categories (Select all that applies)', required=True)
+	price = forms.CharField(label='Entry Fee', required=True)
+	tag = forms.CharField(label='Categories (Select all that applies)', required=True)
 	description = forms.CharField(label='Description', help_text="Write something about my event...", max_length=1000, required=True)
 	href = forms.URLField(label='Link to My Event', help_text="My official link is...", max_length=150, required=True)
 	picture = forms.ImageField(label='Upload Images', required=True)
+
+	"""def clean_profile(self):
+		data = self.profile
+		return data"""
 
 	def clean_start_time(self):
 		data = self.cleaned_data['start_time']
