@@ -117,8 +117,8 @@ class Event(models.Model):
 
     description = models.TextField(max_length=1000, help_text="Write something about my event...")
 
-    start_time = models.DateTimeField(verbose_name='Start Time', auto_now=False, auto_now_add=False, help_text="Enter the starting date and time of your event");
-    end_time = models.DateTimeField(verbose_name='End Time', auto_now=False, auto_now_add=False, help_text="Enter the ending date and time of your event");
+    start_time = models.DateTimeField(verbose_name='Start Time', auto_now=False, auto_now_add=False, help_text="MM/DD/YY Format");
+    end_time = models.DateTimeField(verbose_name='End Time', auto_now=False, auto_now_add=False, help_text="MM/DD/YY Format");
 
     # An event only have one price
     price = models.ForeignKey(Price, verbose_name='Entry Fee', on_delete=models.CASCADE, parent_link=False)

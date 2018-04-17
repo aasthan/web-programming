@@ -64,7 +64,9 @@
 		{% endfor %}-->
 		<div class="form-group row subutton">
 			<input type = "submit" class="btn btn-success" value="Submit" />
-			<input type="submit" id="cancel" class="btn btn-danger" value="Cancel"/>
+			<button type="cancel" onclick="window.location='/';return false;">Cancel</button>
+
+
 		</div>
 	</form>
 {% endblock %}
