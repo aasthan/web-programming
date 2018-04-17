@@ -42,11 +42,13 @@
   </div>
 
   <!-- Save button -->
-  <div class="row">
-    <div class="col-lg-6">
-      <input type="submit" class="btn btn-info" id="btn-save" value="Save Event"/>
-    </div>
-  </div>
+   <div class="row">
+     <div class="col-lg-6">
+      <span class="title"></span> <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+          href="{{ event.get_save_url }}">Save/ Unsave</a></h4>
+      
+     </div>
+   </div>
 
   <input id="pac-input" class="controls" type="text" placeholder="Search Box" value = "{{ event.location }} " autocomplete="on" disabled="true">
 
