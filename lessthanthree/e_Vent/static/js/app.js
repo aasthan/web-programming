@@ -56,17 +56,20 @@ $(document).ready(function(){
     var saveCount = parseInt(this_.attr("data-saves")) | 0
     var addSave = saveCount + 1
     var removeSave = saveCount
+    var str = ""
     if(saveUrl) {
       $.ajax({
         url: saveUrl,
         method: "GET",
         data: {},
         success: function(data){
-          console.log(data)
           if (data.saved) {
-            updateText(this_, addSave, "Unsave");
+            $(".save-btn").text('Save/ Unsave');
+            location.reload();
+            
           } else {
-            updateText(this_, removeSave, "Save");
+            $(".save-btn").text('Save/ Unsave');
+            location.reload();
           }
         },
         error: function(error){
@@ -75,6 +78,8 @@ $(document).ready(function(){
         }
       })
     }
+
+
   })
 })
 
