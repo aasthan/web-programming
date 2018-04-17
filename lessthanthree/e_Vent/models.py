@@ -146,6 +146,12 @@ class Event(models.Model):
         """
         return reverse('event-details', args=[str(self.id)])
 
+    def get_tag(self):
+        '''
+        To ensure that only one tag is returned
+        '''
+        return ''.join([tag.name for tag in self.tag.all()[:1]])
+
     def display_tag(self):
         """
         Creates a string for the Tag. This is required to display tags in Admin.
