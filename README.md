@@ -8,3 +8,4 @@ Please note these dependencies installation requirements:
 Project 1: Run this application on localhost and run npm server. Please run npm on local host so that the app renders correctly.
 Project 2: Run command: "pip install django-money" to install django-money.
 Project 3: You need to run command: "pip3 install djangorestframework" and command: "pip install django-money" to install necessary dependencies.
+If the application prompts you to log in, please use username "compsci326" and password "comspci326". You can also create a new profile page on Django admin page.
