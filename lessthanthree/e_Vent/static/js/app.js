@@ -78,7 +78,4 @@ $(document).ready(function(){
   })
 })
 
-$(document).ready(function(){
-  {% block jquery %}{% endblock %}
-})
 
