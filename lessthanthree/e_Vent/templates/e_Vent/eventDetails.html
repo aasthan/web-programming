@@ -8,47 +8,43 @@
 <!-- Event detail css -->
 <link rel="stylesheet" href="{% static 'css/event-details.css' %}">
 
-
-
 <!--Main feed-->
-
-
 <div class="container">
 
-	<!-- Sort by latest date -->
-	<h1>Event Details</h1>
-	<div class="row">
-		<div class="col-lg-6 spacing">
-			<img src="{{ event.picture.url }}" id="event-img">
-		</div>
+  <!-- Sort by latest date -->
+  <h1>Event Details</h1>
+  <div class="row">
+    <div class="col-lg-6 spacing">
+      <img src="{{ event.picture.url }}" id="event-img">
+    </div>
 
-		<div class="col-lg-6 spacing">
-			<div class="details-info">
-				<span class="title"> Name: </span> <span> {{ event.title  }}</span>
-				<hr class="line">
-				<span class="title">Date: </span> <span> {{ event.start_time }}</span>
-				<hr class="line">
-				<span class="title">Price:</span> <span>{{ event.price }}</span>
-				<hr class="line">
-				<span class="title">Description: </span> <span>{{ event.description }}</span>
-				<hr class="line">
-				<span class="title">Location: </span><span id = "loc">{{ event.location }}</span>
-				<hr class="line">
+    <div class="col-lg-6 spacing">
+      <div class="details-info">
+        <span class="title"> Name: </span> <span> {{ event.title  }}</span>
+        <hr class="line">
+        <span class="title">Date: </span> <span> {{ event.start_time }}</span>
+        <hr class="line">
+        <span class="title">Price:</span> <span>{{ event.price }}</span>
+        <hr class="line">
+        <span class="title">Description: </span> <span>{{ event.description }}</span>
+        <hr class="line">
+        <span class="title">Location: </span><span id = "loc">{{ event.location }}</span>
+        <hr class="line">
         <span class="title">Link: </span><a href="{{ event.href }}">{{ event.href }}</a>
         <hr class="line">
-				<span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
-				<hr class="line">
-        <span class="title">Popularity:</span> <span>{{ event.saves.count }} </a></span>
+        <span class="title">Tags:</span> <span>{{ event.display_tag }}</span>
         <hr class="line">
-			</div>
-		</div>
-	</div>
+        <span class="title"></span> <span><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+          href="{{ event.get_save_url }}">{{ event.saves.count }} Save</a></span>
+        <hr class="line">
+      </div>
+    </div>
+  </div>
 
   <!-- Save button -->
   <div class="row">
     <div class="col-lg-6">
-      <span class="title"></span> <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
-          href="{{ event.get_save_url }}">Save/ Unsave</a></h4>
+      <input type="submit" class="btn btn-info" id="btn-save" value="Save Event"/>
     </div>
   </div>
 
@@ -62,40 +58,42 @@
   <div class="col-md-12">
     <div class="carousel slide multi-item-carousel" id="theCarousel">
       <div class="carousel-inner">
-        {% for event in event_list %}
+        {% for events in event_list %}
+        {% if events.tag %}
         <div class="item{% if forloop.first %} active{% endif %}">
-          <a href="{{event.get_absolute_url}}">
+          <a href="{{events.get_absolute_url}}">
             <div class="col-lg-4 col-sm-6">
               <div class="post-module">
-                <img src="{{ event.picture.url }}" class="img-responsive">
+                <img src="{{ events.picture.url }}" class="img-responsive">
 
                 <!-- Thumbnail-->
                 <div class="thumbnail">
                   <div class="date">
-                    <div class="month">{{ event.display_month }}</div>
-                    <div class="day">{{ event.display_day }}</div>
+                    <div class="month">{{ events.display_month }}</div>
+                    <div class="day">{{ events.display_day }}</div>
                   </div>
                 </div>
                 <!-- Post Content-->
                 <div class="post-content">
-                  <div class="category">{{ event.price }}</div>
-                  <h1 class="title">{{ event.title }}</h1>
-                  <h2 class="sub_title">{{ event.display_tag }}</h2>
-                  <p class="description">{{ event.description }}</p>
+                  <div class="category">{{ events.price }}</div>
+                  <h1 class="title">{{ events.title }}</h1>
+                  <h2 class="sub_title">{{ events.display_tag }}</h2>
+                  <p class="description">{{ events.description }}</p>
                 </div>
               </div>
             </div>
           </a>
         </div>
+        {%endif%}
         {%endfor%}
       </div>
       <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
       <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
     </div>
   </div>
+
+
 </div>
-
-
 <!-- Load static specifically for event Details -->
 {% load static %}
 <script src="{% static 'js/mapApp.js' %}"></script>

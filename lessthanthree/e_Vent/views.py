@@ -84,9 +84,12 @@ class EventDetailView(generic.DetailView):
 	# Combining Detail view and retrieve list of event objects
 	def get_context_data(self, **kwargs):
 		# Call the base implementation first to get a context
-		context = super().get_context_data(**kwargs)
-		# Add in a QuerySet of all the events
-		context['event_list'] = Event.objects.all()
+		context = super(EventDetailView, self).get_context_data(**kwargs)
+		#get tag from current event
+		currentTag = super(EventDetailView, self).get_object().display_tag()
+		print (currentTag)
+		#create a list with events that have same tags
+		context['event_list'] = Event.objects.filter(tag__name__icontains = currentTag)
 		return context
 
 	def get_loc(request):
