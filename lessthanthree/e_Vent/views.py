@@ -16,7 +16,9 @@ def indexView(request):
 	events = Event.objects.all()
 	num_profiles = Profile.objects.all().count()
 	num_location = Location.objects.all().count()
-	popular_events = Event.objects.filter(saves__gte = 2)
+	popular_events = Event.objects.order_by('-saves', '-saves')[:10]
+
+
 
 	return render(
 		request,
