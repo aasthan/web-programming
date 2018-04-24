@@ -5,18 +5,66 @@
 
 
 {% block content %}
+<style>
+		.req:after{content: "*";color: red;}
+		.req{font-size: 1.25em;}
+		.fillins{max-width: 470px;font-size: 1.2em;}
+		.checkbox-inline{
+			float: left;
+		    display: inline-block;
+		    padding-right: 5px;
+		    background-color: #f0eee2;
+		}
+		.radio-inline{float: left;display:inline-block;padding-right: 5px;background-color: #f0eee2;}
+		input[type=text], input[type=url], select, textarea{
+		    width: 100%;
+		    padding: 12px;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    box-sizing: border-box;
+		    resize: vertical;
+		    align-items: left;
+		}
+		.row {font-size: 14px;vertical-align:super;}
+		label {padding: 12px 12px 12px 0;display: inline-block;}
+		#price{vertical-align: top;}
+		input[type=submit] {
+		    background-color: #ffb6c1;
+		    color: white;
+		    padding: 12px 20px;
+		    border: none;
+		    cursor: pointer;
+		    float: right;
+		    margin-left: 5px;
+		    margin-right: 5px;
+		}
+		input[type=submit]:hover {background-color: #ffb6c1;}
+		#cancel {background-color: #ffc800;}
+		.yellow {color: #ffc800;}
+		.form{margin-left: 15%;}
+		.subutton{margin-right: 50%;}
+		.container {border-radius: 5px;background-color: #f2f2f2;padding: 20px;}
+		.col-25 {float: left;width: 25%;margin-top: 3px;}
+		.col-75 {float: left;width: 75%;margin-top: 3px;}
+		.col-35 {float: left;width: 35%;margin-top: 3px;}
+		/* Clear floats after the columns */
+		.row:after {content: "";display: table;clear: both;}
+	</style>
 <div class="container">
   <div class="info">
     <h1>Welcome!</h1>
   </div>
 </div>
-<div class="form">
-  <div class="image"><img src=""/></div>
-  <input type="text" placeholder="Username"/>
-  <input type="password" placeholder="Password"/>
-  <input type="text" placeholder="Email Address"/>
-  <button>Create</button>
-  <p class="message">Already Registered? <a href="{% url 'login' %}">Sign In</a></p>
+<div>
+<form method="post" class="form">
+    {% csrf_token %}
+    <table>
+    {{form}}
+	</table>
+	<div class="form-group row subutton">
+		<input type = "submit" class="btn btn-success" value="Submit" style="background-color: #01dbfb;"/>
+		<p class="message">Already Registered? <a href="{% url 'login' %}">Sign In</a></p>
+	</div>
 </form>
 </div>
 

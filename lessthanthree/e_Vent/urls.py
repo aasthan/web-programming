@@ -12,7 +12,7 @@ urlpatterns = [
     path('form/',views.EventFormView.as_view(),name='form'),
     path('browseEvent/',views.browseEventsView, name='browse-Event'),
     path('login/',views.LoginView.as_view(), name = 'login'),
-    path('signUp/',views.SignupView.as_view(), name = 'signup'),
+    #path('signUp/',views.SignupView.as_view(), name = 'signup'),
     path('filterEventByPrice/',views.filterEventByPriceView, name='filter-event-by-price'),
     path('filterEventByLocation/',views.filterEventByLocationView, name='filter-event-by-location'),
     path('filterEventByCategory/',views.filterEventByCategoryView, name='filter-event-by-category'),
@@ -25,4 +25,5 @@ urlpatterns = [
 
 urlpatterns += [   
     #path('event/create/', views.EventCreate, name='event_create'),
+    path('signUp/', views.signup, name='signup'),
 ]

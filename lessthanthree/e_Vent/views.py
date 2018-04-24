@@ -183,9 +183,9 @@ class LoginView(generic.ListView):
 	model = Event
 	template_name = 'e_Vent/logIn.html'
 
-class SignupView(generic.ListView):
-	model = Event
-	template_name = 'e_Vent/signUp.html'
+#class SignupView(generic.ListView):
+#	model = Event
+#	template_name = 'e_Vent/signUp.html'
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
@@ -214,3 +214,25 @@ class EventUpdate(LoginRequiredMixin, UpdateView):
 class EventDelete(LoginRequiredMixin, DeleteView):
 	model = Event
 	success_url = reverse_lazy('index')
+
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user.refresh_from_db()
+            user.profile.name = form.cleaned_data.get('first_name')
+            user.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignUpForm()
+    return render(request, 'e_Vent/signUp.html', {'form': form})
