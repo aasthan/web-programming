@@ -50,7 +50,7 @@
 	</style>
 
 	<h1> Let's Add an Event! </h1>
-
+	<div style="padding-left: 140px;">
 	<form action="" class="form" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
 	    <table>
@@ -63,10 +63,11 @@
         </div>
 		{% endfor %}-->
 		<div class="form-group row subutton">
-			<input type = "submit" class="btn btn-success" value="Submit" />
-			<input type="submit" class="btn btn-success" onclick="window.location='/';return false;" value = "Cancel" />
+			<input type = "submit" class="btn btn-success" value="Submit" style="background-color: #01dbfb;"/>
+			<input type="submit" class="btn btn-success" onclick="window.location='/';return false;" value = "Cancel" style="background-color: #ff9f27;"/>
 
 
 		</div>
 	</form>
+	</div>
 {% endblock %}
