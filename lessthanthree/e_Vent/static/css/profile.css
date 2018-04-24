@@ -763,3 +763,58 @@ i.material-icons:hover {
   80% { opacity : 0; margin-left : -250%; }
   100% { opacity : 0; margin-left : -250%; }
 }
+
+
+ /* Custom Event Details twiched */
+  .details-info {
+    text-align: left;
+    color: gray;
+    font-size: 2rem;
+    line-height: 1.7;
+    word-wrap: break-word;
+    text-align: justify;
+  }
+
+
+  .spacing {
+    margin-top: 50px;
+  }
+
+
+  #map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+  }
+
+.profile-img{
+  padding-top: 20%;
+}
+
+  .title {
+    font-weight: bold;
+  }
+
+  .line { 
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+  }
+
+  #event-img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  #btn-save{
+   display: inline-block;
+   width: 100%;
+  }
+
+\
