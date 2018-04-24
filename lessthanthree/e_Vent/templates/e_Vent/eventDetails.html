@@ -41,34 +41,31 @@
 
   <!-- Save button -->
    <div class="row">
-     <div class="col-lg-6">
+     <div class="col-lg-4">
      {% if user.is_authenticated %}
-      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
+      <h4 style="background-color: #ffb6c1; border-style: solid; border-radius: 3px; padding: 8px;"><a class="save-btn" data-href="{{ event.get_api_save_url }}" data-saves="{{ event.saves.count }}"
           href="{{ event.get_save_url }}">Save/ Unsave</a></h4>
       {% else %}
       You don't have any permission to save this event. Please log in first!
       {% endif %}
 
      </div>
-   </div>
 
      <!-- Update button -->
-   <div class="row">
-     <div class="col-lg-6">
+     <div class="col-lg-4">
      {% if user.is_authenticated %}
-      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="update-btn" href="{{ request.get_full_path }}/update">Update</a></h4>
+      <h4 style="background-color: #ffb6c1; border-style: solid; border-radius: 3px; padding: 8px;"><a class="update-btn" href="{{ request.get_full_path }}/update">Update</a></h4>
       {% else %}
       You don't have any permission to save this event. Please log in first!
       {% endif %}
 
      </div>
-   </div>
+   
 
     <!-- Delete button -->
-   <div class="row">
-     <div class="col-lg-6">
+     <div class="col-lg-4">
      {% if user.is_authenticated %}
-      <h4 style="background-color: #3399ff; border-style: solid; border-radius: 3px; padding: 10px;"><a class="delete-btn" href="{{ request.get_full_path }}/delete">Delete</a></h4>
+      <h4 style="background-color: #ffb6c1; border-style: solid; border-radius: 3px; padding: 10px;"><a class="delete-btn" href="{{ request.get_full_path }}/delete">Delete</a></h4>
       {% else %}
       You don't have any permission to save this event. Please log in first!
       {% endif %}
