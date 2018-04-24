@@ -45,14 +45,20 @@ from django.contrib.auth.models import User
 
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Inform a valid email address.')
+    email = forms.EmailField(max_length=254)
     first_name = forms.CharField(max_length=30, required=True)
     last_name = forms.CharField(max_length=30, required=True)
+    def __init__(self, *args, **kwargs):
+    	super(SignUpForm, self).__init__(*args, **kwargs)
+    	for fieldname in ['username', 'password1', 'password2']:
+    		self.fields[fieldname].help_text = None
 
     class Meta:
         model = User
         help_texts = {
             'username': '',
+            'password1': '',
+            'password2': '',
         }
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2',)
 
