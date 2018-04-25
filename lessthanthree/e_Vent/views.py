@@ -42,10 +42,10 @@ def browseEventsView(request):
 
 def filterEventByPriceView(request):
 	allEvents = Event.objects.all()
-	freePrice = Event.objects.filter(price = 0)
-	lessThanTwenty = Event.objects.filter(price__lt = 20)
-	twentyToFifty = Event.objects.filter(price__gte = 20, price__lte = 50)
-	greaterThanFifty = Event.objects.filter(price__gte = 50)
+	freePrice = Event.objects.filter(price__name=0)
+	lessThanTwenty = Event.objects.filter(price__name__gte =1, price__name__lt = 20)
+	twentyToFifty = Event.objects.filter(price__name__gte = 20, price__name__lte = 50)
+	greaterThanFifty = Event.objects.filter(price__name__gte = 50)
 
 	return render(
 		request,
