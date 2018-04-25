@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'e_Vent.apps.EVentConfig',
     'djmoney',
     'rest_framework',
+    'password_reset',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,13 @@ MEDIA_URL = '/media/'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+# my_project/settings.py
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+EMAIL_HOST = 'smtp.gmail.com' # mail service smtp
+EMAIL_HOST_USER = 'compsci326lt3@gmail.com' # email id
+EMAIL_HOST_PASSWORD = 'compsci326' #password
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

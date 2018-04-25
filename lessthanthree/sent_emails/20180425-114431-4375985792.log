@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: nguye29v@mtholyoke.edu
+Date: Wed, 25 Apr 2018 15:44:31 -0000
+Message-ID: <152467107113.47143.5083236775323160025@n225-146.mtholyoke.edu>
+
+Someone asked for password reset for email nguye29v@mtholyoke.edu. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/MQ/4vn-64607a19882af9f59205/
+
+-------------------------------------------------------------------------------

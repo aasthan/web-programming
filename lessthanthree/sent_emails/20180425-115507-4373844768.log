@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: vin@umass.edu
+To: nguyenhuevi97@gmail.com
+Date: Wed, 25 Apr 2018 15:55:07 -0000
+Message-ID: <152467170772.47402.681471010901877024@n225-146.mtholyoke.edu>
+
+Someone asked for password reset for email nguyenhuevi97@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/MTI/4vn-18eb492795408b513ba1/
+
+-------------------------------------------------------------------------------

@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: nguyenhuevi97@gmail.com
+Date: Wed, 25 Apr 2018 15:47:17 -0000
+Message-ID: <152467123784.47143.15614605630189855012@n225-146.mtholyoke.edu>
+
+Someone asked for password reset for email nguyenhuevi97@gmail.com. Follow the link below:
+http://127.0.0.1:8000/accounts/reset/MTI/4vn-cc52d5b6139200fcd2ea/
+
+-------------------------------------------------------------------------------

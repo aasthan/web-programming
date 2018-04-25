@@ -23,7 +23,7 @@ urlpatterns = [
     path('event/create/', views.EventCreate.as_view(), name='event_create'),
 ]
 
-urlpatterns += [   
+urlpatterns += [
     #path('event/create/', views.EventCreate, name='event_create'),
     path('signUp/', views.signup, name='signup'),
 ]
