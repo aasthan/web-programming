@@ -127,7 +127,6 @@ class Event(models.Model):
 
     saves = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='saves')
 
-
     def __str__(self):
         """
         String for representing the Model object.
