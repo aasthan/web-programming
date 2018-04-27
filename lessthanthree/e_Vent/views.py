@@ -144,9 +144,11 @@ class PostSaveAPIToggle(LoginRequiredMixin, APIView):
 		data = {"updated": updated, "saved": saved}
 		return Response(data)
 
+
 class EventSearchView(generic.ListView):
     model = Event
     template_name = 'e_Vent/search.html'
+	
     def get_queryset(self):
         result = super(EventSearchView, self).get_queryset()
         query = self.request.GET.get('q')
@@ -183,25 +185,11 @@ class LoginView(generic.ListView):
 	model = Event
 	template_name = 'e_Vent/logIn.html'
 
-#class SignupView(generic.ListView):
-#	model = Event
-#	template_name = 'e_Vent/signUp.html'
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 from .models import Event
 from .forms import EventForm
-
-#def EventCreate(request):
-#	form = EventForm(request.POST)
-#	if request.method == "POST":
-#		form = EventForm(request.POST)
-#		if form.is_valid():
-#			event = form.save(commit=False)
-#			event.save()
-#			return HttpResponseRedirect(event.get_absolute_url())
-#	return render(request, 'e_Vent/event_form.html', {'form':form})
 
 class EventCreate(LoginRequiredMixin,CreateView):
 	model = Event

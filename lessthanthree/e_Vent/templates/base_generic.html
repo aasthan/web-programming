@@ -73,7 +73,7 @@
           <!-- Search button -->
 
           <form class="navbar-form navbar-left">
-            <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box" >
+            <button id="searchButton" type="button" class="btn btn-info" onclick="relocate_search()">
               <i class="material-icons">search</i>
             </button>
             <div id="search-box" class="collapse">
@@ -83,6 +83,14 @@
             </div>
           </form>
 
+          <script type="text/javascript">
+            function relocate_search()
+            {             
+                 location.href = "{% url 'search' %}";                
+            } 
+
+           
+          </script>
           <!-- Login + Create event -->
 
           <ul class="nav navbar-nav navbar-right">

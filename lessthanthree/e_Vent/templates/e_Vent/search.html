@@ -3,7 +3,67 @@
 {% block title %}<title>Search</title>{% endblock %}
 
 {% block content %}
-	<h1> Search Results </h1>
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'index' %}">e-Vent</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+          <!-- Drop down menu-->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" id="filterButton" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="material-icons">filter_list</i></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'browse-Event' %}">All</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="{% url 'filter-event-by-location' %}">Location</a></li>
+                <li><a href="{% url 'filter-event-by-price' %}">Price</a></li>
+                <li><a href="{% url 'filter-event-by-category' %}">Category</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Search button -->
+
+          <form class="navbar-form navbar-left">
+            <button id="searchButton" type="button" class="btn btn-info" data-toggle="collapse" data-target="#search-box">
+              <i class="material-icons">search</i>
+            </button>
+            <div id="search-box" >
+              <form method="GET" action="{% url 'search' %}">
+                <input id="search-box-sub" name="q" type="text" class="form-control" placeholder="Please enter your Search keywords in the Box" style="width: 500px;">
+              </form>
+            </div>
+          </form>
+
+        
+          <!-- Login + Create event -->
+
+          <ul class="nav navbar-nav navbar-right">
+            <a href="{% url 'profile' %}"><i class="material-icons">face</i></a>
+            <a href="{% url 'event_create' %}"><i class="material-icons">add</i></a>
+            {% if user.is_authenticated %}
+            <li><a class="navbar-text-login">Hi there, {{ user.get_username }}</a></li>
+            <li><a class="navbar-text-login" href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+            {% else %}
+            <li><a class="navbar-text-login" href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+	<h1 style="margin-top: 300px;""> Search Results </h1>
 
 	{% if event_list %}
       {% for event in event_list %}
@@ -31,6 +91,6 @@
             </a>
             {% endfor %}
 	{% else %}
-		<p> There are no such events :(. </p>
+		<p style="margin-top: 300px;"> There are no such events :(. </p>
 	{% endif %}
 {% endblock %}
