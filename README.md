@@ -4,7 +4,7 @@ The application will act as a simple feed, with minimal design and no login requ
 Users be able to filter the events based on colleges, dates, price etc. Students and organizations can also advertise their events, which will require them to create an account to further manage the events.
 
 
-Please note these dependencies installation requirements:
+Please note these dependencies installation requirements: </br>
 Project 1: Run this application on localhost and run npm server. Please run npm on local host so that the app renders correctly. </br>
 Project 2: Run command: "pip install django-money" to install django-money.</br>
 Project 3: You need to run command: "pip3 install djangorestframework" and command: "pip install django-money" to install necessary dependencies.</br>
