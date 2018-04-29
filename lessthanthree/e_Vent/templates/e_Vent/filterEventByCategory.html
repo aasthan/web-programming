@@ -5,6 +5,26 @@
 {% block content %}
       <!-- First carousel -->
   
+  <style>
+    .carousel-inner > .item.next,
+    .carousel-inner > .item.active.right {
+      left: 0;
+      -webkit-transform: translate3d(33%, 0, 0);
+      -ms-transform: translate3d(33%, 0, 0);
+      -o-transform: translate3d(33%, 0, 0);
+      transform: translate3d(33%, 0, 0);
+    }
+    .carousel-inner > .item.prev,
+    .carousel-inner > .item.active.left {
+      left: 0;
+      -webkit-transform: translate3d(-33%, 0, 0);
+      -ms-transform: translate3d(-33%, 0, 0);
+      -o-transform: translate3d(-33%, 0, 0);
+      transform: translate3d(-33%, 0, 0);
+    }
+  </style>
+
+  
   <h1 class="headline" id="latest">Cultural Events</h1>
   {% if tagCultural %}
   <div class="col-md-12">
