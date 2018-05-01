@@ -10,6 +10,4 @@ Project 2: Run command: "pip install django-money" to install django-money.</br>
 Project 3: You need to run command: "pip3 install djangorestframework" and command: "pip install django-money" to install necessary dependencies.</br>
 Project 4: You need to run command: "pip3 install djangorestframework" + "pip install django-money" + "pip3 install django-password-reset" to install necessary dependencies.</br>
 
-[
-<img width="882" alt="screen shot 2018-03-29 at 5 36 19 pm" src="https://user-images.githubusercontent.com/30184592/39018118-1f393b82-43f3-11e8-8f22-9a12db2eec19.png">
-](url)
+![event_uml](https://user-images.githubusercontent.com/30184592/39497409-35323ea2-4d71-11e8-822b-b999f65d645b.png)
